@@ -47,7 +47,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="flex pr-6 pl-3 h-14 justify-end items-start gap-10">
+      <div className="flex pr-6 pl-3 h-14 justify-end items-center gap-10">
         <div>
           <h1>Hepsi Orada</h1>
         </div>
