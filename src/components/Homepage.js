@@ -1,11 +1,10 @@
 import React from "react";
 import resim1 from "../images/ilk1.png";
-import resim2 from "../images/ikinci.png";
-import resim3 from "../images/ücüncü.png";
-import resim4 from "../images/dördüncü.png";
-import resim5 from "../images/besinci.png";
-import resim6 from "../images/altinci.png";
-import resim7 from "../images/yedinci.png";
+import resim7 from "../images/bu1.png";
+import resim8 from "../images/bu2.png";
+import resim9 from "../images/bu3.png";
+import Logo from "./Logo";
+import Footer from "../layouts/Footer";
 
 const Homepage = () => {
   return (
@@ -26,25 +25,19 @@ const Homepage = () => {
         </div>
       </div>
 
-      <div className="markalar">
-        <div className="flex ">
+      <Logo />
+      <div className="flex items-center self-stretch pr-40 pl-20">
+        <div className="flex py-20 items-start gap-4">
           <div>
-            <img src={resim2} alt="resim" />
+            <img src={resim7} alt="resim" />
           </div>
-          <div>
-            <img src={resim3} alt="resim" />
-          </div>
-          <div>
-            <img src={resim4} alt="resim" />
-          </div>
-          <div>
-            <img src={resim5} alt="resim" />
-          </div>
-          <div>
-            <img src={resim6} alt="resim" />
+          <div className="flex flex-col gap-4">
+            <img src={resim8} alt="resim" />
+            <img src={resim9} alt="resim" />
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
