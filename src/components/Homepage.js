@@ -5,6 +5,8 @@ import resim8 from "../images/bu2.png";
 import resim9 from "../images/bu3.png";
 import Logo from "./Logo";
 import Footer from "../layouts/Footer";
+import Bestseller from "./Bestseller";
+import Featured from "./Featured";
 
 const Homepage = () => {
   return (
@@ -37,6 +39,8 @@ const Homepage = () => {
           </div>
         </div>
       </div>
+      <Bestseller />
+      <Featured />
       <Footer />
     </>
   );
