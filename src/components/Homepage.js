@@ -7,6 +7,8 @@ import Logo from "./Logo";
 import Footer from "../layouts/Footer";
 import Bestseller from "./Bestseller";
 import Featured from "./Featured";
+import Services from "./Services";
+import FeaturedPost from "./FeaturedPost";
 
 const Homepage = () => {
   return (
@@ -41,6 +43,8 @@ const Homepage = () => {
       </div>
       <Bestseller />
       <Featured />
+      <Services />
+      <FeaturedPost />
       <Footer />
     </>
   );
