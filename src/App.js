@@ -1,6 +1,6 @@
 import React from "react";
 import Homepage from "./components/Homepage";
-import Products from "./components/Products";
+import ProductPage from "./components/ProductPage/ProductPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/" exact component={Homepage} />
-        <Route path="/products" component={Products} />
+        <Route path="/products" component={ProductPage} />
       </Switch>
     </Router>
   );

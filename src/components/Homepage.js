@@ -4,7 +4,6 @@ import resim7 from "../images/bu1.png";
 import resim8 from "../images/bu2.png";
 import resim9 from "../images/bu3.png";
 import Logo from "./Logo";
-import Footer from "../layouts/Footer";
 import Bestseller from "./Bestseller";
 import Featured from "./Featured";
 import Services from "./Services";
@@ -45,7 +44,6 @@ const Homepage = () => {
       <Featured />
       <Services />
       <FeaturedPost />
-      <Footer />
     </>
   );
 };

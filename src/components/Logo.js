@@ -7,21 +7,21 @@ import resim6 from "../images/altinci.png";
 
 const Logo = () => {
   return (
-    <div className="markalar">
-      <div className="flex ">
-        <div>
+    <div className="flex px-44 justify-center items-center">
+      <div className="flex py-12 justify-center items-center gap-8 ">
+        <div className="flex justify-center items-center w-36">
           <img src={resim2} alt="resim" />
         </div>
-        <div>
+        <div className="flex justify-center items-center w-36">
           <img src={resim3} alt="resim" />
         </div>
-        <div>
+        <div className="flex justify-center items-center w-36">
           <img src={resim4} alt="resim" />
         </div>
-        <div>
+        <div className="flex justify-center items-center w-36">
           <img src={resim5} alt="resim" />
         </div>
-        <div>
+        <div className="flex justify-center items-center w-36">
           <img src={resim6} alt="resim" />
         </div>
       </div>
