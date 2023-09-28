@@ -1,6 +1,6 @@
 import React from "react";
 import Homepage from "./components/Homepage";
-import ProductPage from "./components/ProductPage/ProductPage";
+import ProductPage from "./ProductPage/ProductPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
