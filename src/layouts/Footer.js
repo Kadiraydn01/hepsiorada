@@ -1,7 +1,7 @@
 import React from "react";
 import { BiLogoFacebookCircle } from "react-icons/bi";
 import { FaInstagram } from "react-icons/fa";
-import { CiTwitter } from "react-icons/ci";
+import { BsTwitter } from "react-icons/bs";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
@@ -12,9 +12,9 @@ const Footer = () => {
         <div className="flex items-center py-7 justify-between  w-full ">
           <div>HepsiOrada</div>
           <div className="flex px-14 gap-4  ">
-            <BiLogoFacebookCircle />
-            <FaInstagram />
-            <CiTwitter />
+            <BiLogoFacebookCircle className="text-blue-400 w-6 h-6" />
+            <FaInstagram className="text-blue-400 w-6 h-6" />
+            <BsTwitter className="text-blue-400 w-6 h-6" />
           </div>
         </div>
       </div>

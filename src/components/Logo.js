@@ -4,6 +4,7 @@ import resim3 from "../images/ücüncü.png";
 import resim4 from "../images/dördüncü.png";
 import resim5 from "../images/besinci.png";
 import resim6 from "../images/altinci.png";
+import resim7 from "../images/yedinci.png";
 
 const Logo = () => {
   return (
@@ -23,6 +24,9 @@ const Logo = () => {
         </div>
         <div className="flex justify-center items-center w-36">
           <img src={resim6} alt="resim" />
+        </div>
+        <div className="flex justify-center items-center w-36">
+          <img src={resim7} alt="resim" />
         </div>
       </div>
     </div>

@@ -13,7 +13,7 @@ const Bestseller = () => {
             <p>Problems trying to resolve the conflict between</p>
           </div>
         </div>
-        <div className="flex flex-wrap gap-12 px-40 py-10 ">
+        <div className="flex flex-wrap gap-12 px-48 py-10 ">
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
@@ -127,7 +127,10 @@ const Bestseller = () => {
         </div>
         <div>
           <div className="flex justify-center items-center py-10">
-            <Button> LOAD MORE PRODUCTS</Button>
+            <Button className=" flex items-center p-4 rounded border-blue-400 text-blue-400 font-bold text-sm border">
+              {" "}
+              LOAD MORE PRODUCTS
+            </Button>
           </div>
         </div>
       </div>

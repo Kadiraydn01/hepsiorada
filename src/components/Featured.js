@@ -10,7 +10,7 @@ const Featured = () => {
           <img src={resim1} alt="resim" />
           <img src={resim2} alt="resim" />
         </div>
-        <div>
+        <div className="flex flex-col py-16">
           <div className="flex flex-col w-96 items-start gap-4">
             <h5 className="text-blue-600">Featured Products</h5>
             <h2 className="text-4xl font-bold">We Love What We Do</h2>
