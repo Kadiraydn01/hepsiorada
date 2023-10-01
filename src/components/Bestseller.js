@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import resim from "../images/urun.png";
+import data from "../Data";
 
 const Bestseller = () => {
   return (
@@ -8,119 +9,139 @@ const Bestseller = () => {
       <div>
         <div>
           <div className="flex flex-col items-center gap-4">
-            <h2>Featured Products</h2>
-            <h3 className="font-bold text-xl">BESTSELLER PRODUCTS</h3>
-            <p>Problems trying to resolve the conflict between</p>
+            <h2>{data.bestSeller.title1}</h2>
+            <h3 className="font-bold text-xl">{data.bestSeller.title2}</h3>
+            <p>{data.bestSeller.titleInfo}</p>
           </div>
         </div>
         <div className="flex flex-wrap gap-12 px-48 py-10 ">
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>Graphic Design</h5>
-              <h6>English Department</h6>
+              <h5>{data.bestSeller.productTitle}</h5>
+              <h6>{data.bestSeller.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">$16.48</p>
-                <p className="text-green-500">$6.48</p>
+                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-500">
+                  {data.bestSeller.productPrice2}
+                </p>
               </div>
             </div>
           </div>
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>Graphic Design</h5>
-              <h6>English Department</h6>
+              <h5>{data.bestSeller.productTitle}</h5>
+              <h6>{data.bestSeller.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">$16.48</p>
-                <p className="text-green-500">$6.48</p>
+                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-500">
+                  {data.bestSeller.productPrice2}
+                </p>
               </div>
             </div>
           </div>
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>Graphic Design</h5>
-              <h6>English Department</h6>
+              <h5>{data.bestSeller.productTitle}</h5>
+              <h6>{data.bestSeller.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">$16.48</p>
-                <p className="text-green-500">$6.48</p>
+                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-500">
+                  {data.bestSeller.productPrice2}
+                </p>
               </div>
             </div>
           </div>
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>Graphic Design</h5>
-              <h6>English Department</h6>
+              <h5>{data.bestSeller.productTitle}</h5>
+              <h6>{data.bestSeller.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">$16.48</p>
-                <p className="text-green-500">$6.48</p>
+                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-500">
+                  {data.bestSeller.productPrice2}
+                </p>
               </div>
             </div>
           </div>
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>Graphic Design</h5>
-              <h6>English Department</h6>
+              <h5>{data.bestSeller.productTitle}</h5>
+              <h6>{data.bestSeller.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">$16.48</p>
-                <p className="text-green-500">$6.48</p>
+                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-500">
+                  {data.bestSeller.productPrice2}
+                </p>
               </div>
             </div>
           </div>
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>Graphic Design</h5>
-              <h6>English Department</h6>
+              <h5>{data.bestSeller.productTitle}</h5>
+              <h6>{data.bestSeller.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">$16.48</p>
-                <p className="text-green-500">$6.48</p>
+                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-500">
+                  {data.bestSeller.productPrice2}
+                </p>
               </div>
             </div>
           </div>
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>Graphic Design</h5>
-              <h6>English Department</h6>
+              <h5>{data.bestSeller.productTitle}</h5>
+              <h6>{data.bestSeller.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">$16.48</p>
-                <p className="text-green-500">$6.48</p>
+                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-500">
+                  {data.bestSeller.productPrice2}
+                </p>
               </div>
             </div>
           </div>
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>Graphic Design</h5>
-              <h6>English Department</h6>
+              <h5>{data.bestSeller.productTitle}</h5>
+              <h6>{data.bestSeller.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">$16.48</p>
-                <p className="text-green-500">$6.48</p>
+                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-500">
+                  {data.bestSeller.productPrice2}
+                </p>
               </div>
             </div>
           </div>
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>Graphic Design</h5>
-              <h6>English Department</h6>
+              <h5>{data.bestSeller.productTitle}</h5>
+              <h6>{data.bestSeller.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">$16.48</p>
-                <p className="text-green-500">$6.48</p>
+                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-500">
+                  {data.bestSeller.productPrice2}
+                </p>
               </div>
             </div>
           </div>
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>Graphic Design</h5>
-              <h6>English Department</h6>
+              <h5>{data.bestSeller.productTitle}</h5>
+              <h6>{data.bestSeller.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">$16.48</p>
-                <p className="text-green-500">$6.48</p>
+                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-500">
+                  {data.bestSeller.productPrice2}
+                </p>
               </div>
             </div>
           </div>
