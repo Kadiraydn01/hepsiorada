@@ -53,5 +53,9 @@ const data = {
     progress: "Progress",
     learnMore: "Learn More",
   },
+  productList: {
+    shop: "Shop",
+    home: "Home",
+  },
 };
 export default data;
