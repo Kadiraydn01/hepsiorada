@@ -54,8 +54,10 @@ const data = {
     learnMore: "Learn More",
   },
   productList: {
+    label: "Showing all 12 results",
     shop: "Shop",
     home: "Home",
+    views: "Views",
   },
 };
 export default data;
