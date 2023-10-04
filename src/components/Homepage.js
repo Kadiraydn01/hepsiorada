@@ -9,10 +9,13 @@ import Featured from "./Featured";
 import Services from "./Services";
 import FeaturedPost from "./FeaturedPost";
 import data from "../Data";
+import Header from "../layouts/Header";
+import Footer from "../layouts/Footer";
 
 const Homepage = () => {
   return (
     <>
+      <Header />
       <div className="flex justify-evenly items-center py-6 ">
         <div className=" flex justify-center items-center w-11/12 bg-gradient-to-r from-blue-300 via-green-300 to-blue-200">
           <div className="flex flex-col justify-center items-start gap-8 flex-shrink-0 ">
@@ -47,6 +50,7 @@ const Homepage = () => {
       <Featured />
       <Services />
       <FeaturedPost />
+      <Footer />
     </>
   );
 };

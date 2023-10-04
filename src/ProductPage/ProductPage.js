@@ -13,10 +13,13 @@ import {
   AiFillEye,
 } from "react-icons/ai";
 import { PiShoppingCartSimpleLight } from "react-icons/pi";
+import Footer from "../layouts/Footer";
+import Header from "../layouts/Header";
 
 const ProductPage = () => {
   return (
     <>
+      <Header />
       <div>
         <div className="flex items-center px-36 py-10 gap-4 bg-opacity-20 bg-gray-400">
           <h1>Home</h1>
@@ -172,6 +175,7 @@ const ProductPage = () => {
       </div>
       <BestSeller />
       <Logo />
+      <Footer />
     </>
   );
 };

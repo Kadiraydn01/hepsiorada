@@ -8,10 +8,12 @@ import Button from "@mui/material/Button";
 import { PiSquaresFourFill, PiListChecksThin } from "react-icons/pi";
 import Dropdown from "react-bootstrap/Dropdown";
 import { AiOutlineDown } from "react-icons/ai";
-
+import Header from "../layouts/Header";
+import Footer from "../layouts/Footer";
 const Products = () => {
   return (
     <>
+      <Header />
       <div className="flex py-6 items-center bg-custom-gray">
         <div className="flex items-center gap-8 px-80 w-full justify-between">
           <div className="flex text-xl font-bold items-start w-1/2">
@@ -349,6 +351,7 @@ const Products = () => {
       </div>
 
       <Logo />
+      <Footer />
     </>
   );
 };
