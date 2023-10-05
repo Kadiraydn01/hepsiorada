@@ -1,11 +1,7 @@
 import React from "react";
 import Footer from "../layouts/Footer";
 import { BsTwitter, BsInstagram } from "react-icons/bs";
-import {
-  AiFillFacebook,
-  AiFillLinkedin,
-  AiOutlineArrowRight,
-} from "react-icons/ai";
+import { AiFillFacebook, AiFillLinkedin } from "react-icons/ai";
 import { SlArrowRight } from "react-icons/sl";
 import data from "../Data";
 import foto from "../images/team1.png";
@@ -14,30 +10,12 @@ import foto3 from "../images/team3.png";
 import foto4 from "../images/team4.png";
 import foto5 from "../images/team5.png";
 import user from "../images/teamUser.jpg";
+import Semiheader from "./Semiheader";
 
 const Team = () => {
   return (
     <>
-      <div className="flex py-4 px-40 items-center">
-        <div className="flex items-center py-3 px-20 gap-20">
-          <div>BANDAGE</div>
-          <div className="flex gap-72 py-1 justify-center items-center">
-            <div className="flex gap-3">
-              <button>Home</button>
-              <button>Product</button>
-              <button>Pricing</button>
-              <button>Contact</button>
-            </div>
-            <div className="flex items-center gap-12">
-              <div className="text-blue-400 font-bold">Login</div>
-              <div className="flex items-center bg-blue-400 text-white py-3 px-7 rounded-sm">
-                <h1>Become A Member</h1>
-                <AiOutlineArrowRight />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Semiheader />
       <div className="flex flex-col gap-6 px-96 text-center items-center">
         <h1>WHAT WE DO</h1>
         <h2 className="text-5xl font-bold">Innovation tailored for you</h2>
