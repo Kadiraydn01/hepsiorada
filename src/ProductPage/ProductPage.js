@@ -28,15 +28,35 @@ const ProductPage = () => {
         </div>
       </div>
       <div className="flex px-40 bg-opacity-20 bg-gray-400 gap-8 py-7">
-        <div>
-          <div>
-            <img src={cover} alt="cover" />
+        <div className="carousel w-full">
+          <div id="item1" className="carousel-item w-full">
+            <img src={cover} className="w-full" />
           </div>
-          <div className="flex py-6 gap-4">
-            <img src={little} alt="little" />
-            <img src={little1} alt="little" />
+          <div id="item2" className="carousel-item w-full">
+            <img src={little} />
+          </div>
+          <div id="item3" className="carousel-item w-full">
+            <img src={little1} />
+          </div>
+          <div id="item4" className="carousel-item w-full">
+            <img src={little} />
           </div>
         </div>
+        <div className="flex justify-center w-full py-2 gap-2">
+          <a href="#item1" className="btn btn-xs">
+            1
+          </a>
+          <a href="#item2" className="btn btn-xs">
+            2
+          </a>
+          <a href="#item3" className="btn btn-xs">
+            3
+          </a>
+          <a href="#item4" className="btn btn-xs">
+            4
+          </a>
+        </div>
+
         <div className="flex flex-col gap-4">
           <div className="text-2xl">
             <h3>Floating Phone</h3>
