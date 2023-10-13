@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <>
       <div className="flex justify-center items-center h-14 ">
-        <div className="flex w-full bg-black text-white justify-between items-start min-h-40 h-14 p-3">
+        <div className="md:min-w-full md:flex md:bg-yellow-300 md:text-white md:justify-between md:items-center xl:flex xl:min-w-full xl:bg-black text-white xl:justify-between xl:items-start xl:min-h-40 xl:h-14 p-3">
           <div className="flex flex-row items-center gap-8">
             <div className="flex items-center gap-2">
               <BsTelephone />
@@ -47,11 +47,11 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="flex pr-6 pl-3 h-14 justify-start items-center gap-80">
+      <div className="flex pr-6 pl-3 h-14 justify-start items-center gap-60 ">
         <div className="flex items-start justify-center pl-16 py-4">
           <h1>Hepsi Orada</h1>
         </div>
-        <div className="flex items-center justify-center gap-80">
+        <div className="flex items-center justify-around w-full ">
           <div>
             <ul className="flex flex-row gap-7 items-start">
               <button>Home</button>

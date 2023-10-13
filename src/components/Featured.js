@@ -6,7 +6,7 @@ import data from "../Data";
 const Featured = () => {
   return (
     <>
-      <div className="flex gap-24 px-48 py-20">
+      <div className="xl:flex xl:flex-row xl:gap-24 xl:px-48 xl:py-20 md:flex md:flex-col-reverse md:items-center md:gap-20 md:px-40 md:py-16">
         <div className="flex gap-5">
           <img src={resim1} alt="resim" />
           <img src={resim2} alt="resim" />

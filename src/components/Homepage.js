@@ -16,9 +16,9 @@ const Homepage = () => {
   return (
     <>
       <Header />
-      <div className="flex justify-evenly items-center py-6 ">
-        <div className=" flex justify-center items-center w-11/12 bg-gradient-to-r from-blue-300 via-green-300 to-blue-200">
-          <div className="flex flex-col justify-center items-start gap-8 flex-shrink-0 ">
+      <div className="flex justify-evenly items-center py-6">
+        <div className="xl:flex xl:flex-row xl:justify-center xl:items-center xl:w-11/12 md:w-11/12 md:flex md:flex-col md:justify-center md:items-center bg-gradient-to-r from-blue-300 via-green-300 to-blue-200">
+          <div className="xl:flex xl:flex-col xl:justify-center xl:items-start xl:gap-8 xl:flex-shrink-0 md:flex md:flex-col md:py-4 md:gap-8 md:items-center ">
             <div className="text-sky-600">{data.homepage.season}</div>
             <div className="font-bold text-5xl">
               {data.homepage.newCollection}

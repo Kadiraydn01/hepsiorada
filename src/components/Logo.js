@@ -9,23 +9,23 @@ import resim7 from "../images/yedinci.png";
 const Logo = () => {
   return (
     <div className="flex px-44 justify-center items-center">
-      <div className="flex py-12 justify-center items-center gap-8 ">
-        <div className="flex justify-center items-center w-36">
+      <div className="md:flex md:flex-col md:w-full md:h-full md:justify-center md:items-center xl:flex xl:flex-row py-12 xl:justify-center items-center gap-8 ">
+        <div className="flex justify-center items-center w-36 md:justify-center md:items-center ">
           <img src={resim2} alt="resim" />
         </div>
-        <div className="flex justify-center items-center w-36">
+        <div className="flex justify-center items-center w-36 md:justify-center md:items-center ">
           <img src={resim3} alt="resim" />
         </div>
-        <div className="flex justify-center items-center w-36">
+        <div className="flex justify-center items-center w-36 md:justify-center md:items-center ">
           <img src={resim4} alt="resim" />
         </div>
-        <div className="flex justify-center items-center w-36">
+        <div className="flex justify-center items-center w-36 md:justify-center md:items-center ">
           <img src={resim5} alt="resim" />
         </div>
-        <div className="flex justify-center items-center w-36">
+        <div className="flex justify-center items-center w-36 md:justify-center md:items-center ">
           <img src={resim6} alt="resim" />
         </div>
-        <div className="flex justify-center items-center w-36">
+        <div className="flex justify-center items-center w-36 md:justify-center md:items-center ">
           <img src={resim7} alt="resim" />
         </div>
       </div>

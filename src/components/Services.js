@@ -14,7 +14,7 @@ const Servises = () => {
             <h3 className="font-bold text-2xl">{data.service.title2}</h3>
             <p>{data.service.titleInfo}</p>
           </div>
-          <div className="flex justify-center items-start gap-8">
+          <div className="xl:flex xl:flex-row xl:justify-center xl:items-start xl:gap-8 md:flex md:flex-col md:justify-center md:items-center">
             <div className="flex p-10 flex-col items-center gap-5">
               <BiSolidBookReader className="w-16 h-16 text-blue-400" />
 

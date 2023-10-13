@@ -21,23 +21,23 @@ const FeaturedPost = () => {
             </h6>
             <h3 className="font-bold text-4xl">{data.featuredPost.title2}</h3>
           </div>
-          <div className="flex items-center gap-8">
-            <div className="flex ">
-              <div class="relative">
+          <div className="xl:flex md:flex xl:flex-row md:flex-col xl:items-center md:items-center md:gap-6 xl:gap-8">
+            <div className="xl:flex xl:flex-row md:flex md:flex-col">
+              <div className="relative">
                 <img src={resim} alt="resim" />
 
-                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-10 flex space-x-6">
-                  <div class="text-black bg-white rounded-full p-3">
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-10 flex space-x-6">
+                  <div className="text-black bg-white rounded-full p-3">
                     <AiOutlineHeart />
                   </div>
-                  <div class="text-black bg-white rounded-full p-3">
+                  <div className="text-black bg-white rounded-full p-3">
                     <PiShoppingCartSimpleLight />
                   </div>
-                  <div class="text-black bg-white rounded-full p-3">
+                  <div className="text-black bg-white rounded-full p-3">
                     <AiFillEye />
                   </div>
                 </div>
-                <div class="absolute top-0 left-0 bg-red-500 rounded text-white  ml-5 mt-5 px-3">
+                <div className="absolute top-0 left-0 bg-red-500 rounded text-white  ml-5 mt-5 px-3">
                   <p className="text-sm">{data.featuredPost.sale}</p>
                 </div>
               </div>
@@ -96,22 +96,22 @@ const FeaturedPost = () => {
               </div>
             </div>
 
-            <div className="flex ">
-              <div class="relative">
+            <div className="xl:flex xl:flex-row md:flex md:flex-col">
+              <div className="relative">
                 <img src={resim1} alt="resim" />
 
-                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-10 flex space-x-6">
-                  <div class="text-black bg-white rounded-full p-3">
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-10 flex space-x-6">
+                  <div className="text-black bg-white rounded-full p-3">
                     <AiOutlineHeart />
                   </div>
-                  <div class="text-black bg-white rounded-full p-3">
+                  <div className="text-black bg-white rounded-full p-3">
                     <PiShoppingCartSimpleLight />
                   </div>
-                  <div class="text-black bg-white rounded-full p-3">
+                  <div className="text-black bg-white rounded-full p-3">
                     <AiFillEye />
                   </div>
                 </div>
-                <div class="rounded absolute top-0 left-0 bg-red-500 text-white  ml-5 mt-5 px-3">
+                <div className="rounded absolute top-0 left-0 bg-red-500 text-white  ml-5 mt-5 px-3">
                   <p className="text-sm">{data.featuredPost.sale}</p>
                 </div>
               </div>
