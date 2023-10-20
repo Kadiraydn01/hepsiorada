@@ -8,12 +8,10 @@ import Button from "@mui/material/Button";
 import { PiSquaresFourFill, PiListChecksThin } from "react-icons/pi";
 import Dropdown from "react-bootstrap/Dropdown";
 import { AiOutlineDown } from "react-icons/ai";
-import Header from "../layouts/Header";
-import Footer from "../layouts/Footer";
+
 const Products = () => {
   return (
     <>
-      <Header />
       <div className="flex py-6 items-center bg-custom-gray">
         <div className="flex items-center gap-8 px-80 w-full justify-between">
           <div className="flex text-xl font-bold items-start w-1/2">
@@ -27,7 +25,7 @@ const Products = () => {
         </div>
       </div>
       <div className=" bg-custom-gray">
-        <div className="flex gap-4 px-80 pb-12 items-center">
+        <div className="xl:flex-row xl:w-full md:w-full xl:flex xl:gap-4 xl:px-80 xl:pb-12 xl:items-center md:flex md:flex-col md:gap-6 md:px-80 md:items-center md:pb-12">
           <div className="relative" style={{ display: "inline-block" }}>
             <img src={resim} alt="resim" />
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-20 flex space-x-6 flex-col items-center justify-center text-center">
@@ -76,7 +74,7 @@ const Products = () => {
         </div>
       </div>
 
-      <div className="flex justify-between gap-20 items-center px-80 py-6">
+      <div className="md:flex md:flex-col md:justify-between md:gap-20 md:items-center md:px-80 md:py-6 xl:flex-row xl:flex xl:justify-between xl:gap-20 xl:items-center xl:px-80 xl:py-6">
         <div>{data.productList.label}</div>
         <div className="flex items-center gap-4">
           {data.productList.views}
@@ -109,16 +107,18 @@ const Products = () => {
         </div>
       </div>
       <div>
-        <div className="flex flex-wrap gap-12 px-80 py-12 ">
+        <div className="xl:flex xl:flex-row xl:flex-wrap xl:gap-12 xl:px-80 xl:py-12 md:flex md:flex-col md:gap-12 md:px-80 md:py-12 md:items-center ">
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>{data.bestSeller.productTitle}</h5>
-              <h6>{data.bestSeller.productInfo}</h6>
+              <h5>{data.bestSeller.products.product1.productTitle}</h5>
+              <h6>{data.bestSeller.products.product1.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-700">
+                  {data.bestSeller.products.product1.productPrice}
+                </p>
                 <p className="text-green-500">
-                  {data.bestSeller.productPrice2}
+                  {data.bestSeller.products.product1.productPrice2}
                 </p>
               </div>
               <div className="flex gap-2">
@@ -132,12 +132,14 @@ const Products = () => {
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>{data.bestSeller.productTitle}</h5>
-              <h6>{data.bestSeller.productInfo}</h6>
+              <h5>{data.bestSeller.products.product1.productTitle}</h5>
+              <h6>{data.bestSeller.products.product1.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-700">
+                  {data.bestSeller.products.product1.productPrice}
+                </p>
                 <p className="text-green-500">
-                  {data.bestSeller.productPrice2}
+                  {data.bestSeller.products.product1.productPrice2}
                 </p>
               </div>
               <div className="flex gap-2">
@@ -151,12 +153,14 @@ const Products = () => {
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>{data.bestSeller.productTitle}</h5>
-              <h6>{data.bestSeller.productInfo}</h6>
+              <h5>{data.bestSeller.products.product1.productTitle}</h5>
+              <h6>{data.bestSeller.products.product1.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-700">
+                  {data.bestSeller.products.product1.productPrice}
+                </p>
                 <p className="text-green-500">
-                  {data.bestSeller.productPrice2}
+                  {data.bestSeller.products.product1.productPrice2}
                 </p>
               </div>
               <div className="flex gap-2">
@@ -170,12 +174,14 @@ const Products = () => {
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>{data.bestSeller.productTitle}</h5>
-              <h6>{data.bestSeller.productInfo}</h6>
+              <h5>{data.bestSeller.products.product1.productTitle}</h5>
+              <h6>{data.bestSeller.products.product1.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-700">
+                  {data.bestSeller.products.product1.productPrice}
+                </p>
                 <p className="text-green-500">
-                  {data.bestSeller.productPrice2}
+                  {data.bestSeller.products.product1.productPrice2}
                 </p>
               </div>
               <div className="flex gap-2">
@@ -189,12 +195,14 @@ const Products = () => {
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>{data.bestSeller.productTitle}</h5>
-              <h6>{data.bestSeller.productInfo}</h6>
+              <h5>{data.bestSeller.products.product1.productTitle}</h5>
+              <h6>{data.bestSeller.products.product1.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-700">
+                  {data.bestSeller.products.product1.productPrice}
+                </p>
                 <p className="text-green-500">
-                  {data.bestSeller.productPrice2}
+                  {data.bestSeller.products.product1.productPrice2}
                 </p>
               </div>
               <div className="flex gap-2">
@@ -208,12 +216,14 @@ const Products = () => {
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>{data.bestSeller.productTitle}</h5>
-              <h6>{data.bestSeller.productInfo}</h6>
+              <h5>{data.bestSeller.products.product1.productTitle}</h5>
+              <h6>{data.bestSeller.products.product1.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-700">
+                  {data.bestSeller.products.product1.productPrice}
+                </p>
                 <p className="text-green-500">
-                  {data.bestSeller.productPrice2}
+                  {data.bestSeller.products.product1.productPrice2}
                 </p>
               </div>
               <div className="flex gap-2">
@@ -227,12 +237,14 @@ const Products = () => {
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>{data.bestSeller.productTitle}</h5>
-              <h6>{data.bestSeller.productInfo}</h6>
+              <h5>{data.bestSeller.products.product1.productTitle}</h5>
+              <h6>{data.bestSeller.products.product1.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-700">
+                  {data.bestSeller.products.product1.productPrice}
+                </p>
                 <p className="text-green-500">
-                  {data.bestSeller.productPrice2}
+                  {data.bestSeller.products.product1.productPrice2}
                 </p>
               </div>
               <div className="flex gap-2">
@@ -246,12 +258,14 @@ const Products = () => {
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>{data.bestSeller.productTitle}</h5>
-              <h6>{data.bestSeller.productInfo}</h6>
+              <h5>{data.bestSeller.products.product1.productTitle}</h5>
+              <h6>{data.bestSeller.products.product1.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-700">
+                  {data.bestSeller.products.product1.productPrice}
+                </p>
                 <p className="text-green-500">
-                  {data.bestSeller.productPrice2}
+                  {data.bestSeller.products.product1.productPrice2}
                 </p>
               </div>
               <div className="flex gap-2">
@@ -265,12 +279,14 @@ const Products = () => {
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>{data.bestSeller.productTitle}</h5>
-              <h6>{data.bestSeller.productInfo}</h6>
+              <h5>{data.bestSeller.products.product1.productTitle}</h5>
+              <h6>{data.bestSeller.products.product1.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-700">
+                  {data.bestSeller.products.product1.productPrice}
+                </p>
                 <p className="text-green-500">
-                  {data.bestSeller.productPrice2}
+                  {data.bestSeller.products.product1.productPrice2}
                 </p>
               </div>
               <div className="flex gap-2">
@@ -284,12 +300,14 @@ const Products = () => {
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>{data.bestSeller.productTitle}</h5>
-              <h6>{data.bestSeller.productInfo}</h6>
+              <h5>{data.bestSeller.products.product1.productTitle}</h5>
+              <h6>{data.bestSeller.products.product1.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-700">
+                  {data.bestSeller.products.product1.productPrice}
+                </p>
                 <p className="text-green-500">
-                  {data.bestSeller.productPrice2}
+                  {data.bestSeller.products.product1.productPrice2}
                 </p>
               </div>
               <div className="flex gap-2">
@@ -303,12 +321,14 @@ const Products = () => {
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>{data.bestSeller.productTitle}</h5>
-              <h6>{data.bestSeller.productInfo}</h6>
+              <h5>{data.bestSeller.products.product1.productTitle}</h5>
+              <h6>{data.bestSeller.products.product1.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-700">
+                  {data.bestSeller.products.product1.productPrice}
+                </p>
                 <p className="text-green-500">
-                  {data.bestSeller.productPrice2}
+                  {data.bestSeller.products.product1.productPrice2}
                 </p>
               </div>
               <div className="flex gap-2">
@@ -322,12 +342,14 @@ const Products = () => {
           <div>
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
-              <h5>{data.bestSeller.productTitle}</h5>
-              <h6>{data.bestSeller.productInfo}</h6>
+              <h5>{data.bestSeller.products.product1.productTitle}</h5>
+              <h6>{data.bestSeller.products.product1.productInfo}</h6>
               <div className="flex gap-4">
-                <p className="text-green-700">{data.bestSeller.productPrice}</p>
+                <p className="text-green-700">
+                  {data.bestSeller.products.product1.productPrice}
+                </p>
                 <p className="text-green-500">
-                  {data.bestSeller.productPrice2}
+                  {data.bestSeller.products.product1.productPrice2}
                 </p>
               </div>
               <div className="flex gap-2">
@@ -349,9 +371,7 @@ const Products = () => {
           </div>
         </div>
       </div>
-
       <Logo />
-      <Footer />
     </>
   );
 };

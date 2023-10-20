@@ -54,12 +54,12 @@ const Header = () => {
         <div className="flex items-center justify-around w-full ">
           <div>
             <ul className="flex flex-row gap-7 items-start">
-              <button>Home</button>
-              <button>Shop</button>
-              <button>About</button>
-              <button>Blog</button>
-              <button>Contact</button>
-              <button>Pages</button>
+              <a href="http://localhost:3000/">Home</a>
+              <a href="http://localhost:3000/product">Shop</a>
+              <a href="http://localhost:3000/about">About</a>
+              <a href="http://localhost:3000/">Blog</a>
+              <a href="http://localhost:3000/team">Contact</a>
+              <a href="http://localhost:3000/products">Pages</a>
             </ul>
           </div>
           <div className="flex items-center gap-5">

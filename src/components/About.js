@@ -1,7 +1,5 @@
 import React from "react";
-import Header from "../layouts/Header";
 import Logo from "./Logo";
-import Footer from "../layouts/Footer";
 import foto from "../images/about.png";
 import user from "../images/teamUser.jpg";
 import { BsTwitter, BsInstagram } from "react-icons/bs";
@@ -12,8 +10,6 @@ import "../App.css";
 const About = () => {
   return (
     <>
-      <Header />
-
       <div class="flex flex-wrap gap-20 px-52 py-20">
         <div class="flex flex-col gap-9 items-start about-left">
           <h1 class="text-sm font-bold">ABOUT COMPANY</h1>
@@ -122,8 +118,6 @@ const About = () => {
           <img className="w-[800px] h-[600px]" src={foto} alt="foto" />
         </div>
       </div>
-
-      <Footer />
     </>
   );
 };

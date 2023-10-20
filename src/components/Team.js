@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "../layouts/Footer";
 import { BsTwitter, BsInstagram } from "react-icons/bs";
 import { AiFillFacebook, AiFillLinkedin } from "react-icons/ai";
 import { SlArrowRight } from "react-icons/sl";
@@ -10,13 +9,11 @@ import foto3 from "../images/team3.png";
 import foto4 from "../images/team4.png";
 import foto5 from "../images/team5.png";
 import user from "../images/teamUser.jpg";
-import Semiheader from "./Semiheader";
 
 const Team = () => {
   return (
     <>
-      <Semiheader />
-      <div className="flex flex-col gap-6 px-96 text-center items-center">
+      <div className="flex flex-col gap-12 pt-12 px-96 text-center items-center">
         <h1>WHAT WE DO</h1>
         <h2 className="text-5xl font-bold">Innovation tailored for you</h2>
         <div className="flex items-center justify-center">
@@ -27,11 +24,11 @@ const Team = () => {
           </div>
         </div>
       </div>
-      <div className="flex gap-3 py-12">
+      <div className="xl:flex xl:flex-row xl:gap-3 xl:py-12 md:flex md:flex-col md:gap-4 md:py-10">
         <div className=" h-full">
           <img className="w-[1400px] h-[490px]" src={foto} alt="foto" />
         </div>
-        <div className="flex flex-wrap gap-3">
+        <div className="xl:ml-0 xl:flex xl:flex-row xl:flex-wrap xl:gap-3 md:flex md:flex-row md:flex-wrap md:gap-5 md:ml-20">
           <img className="w-[400px] h-[240px]" src={foto2} alt="foto" />
           <img className="w-[400px] h-[240px]" src={foto3} alt="foto" />
           <img className="w-[400px] h-[240px]" src={foto4} alt="foto" />
@@ -80,7 +77,6 @@ const Team = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

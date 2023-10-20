@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "../layouts/Footer";
 import { AiFillFacebook, AiFillLinkedin } from "react-icons/ai";
 import {
   BsInstagram,
@@ -10,12 +9,10 @@ import {
 import { MdLocationOn } from "react-icons/md";
 import { PiArrowBendRightDownBold } from "react-icons/pi";
 import resim2 from "../images/alisveris.png";
-import Semiheader from "./Semiheader";
 
 const Contact = () => {
   return (
     <>
-      <Semiheader />
       <div>
         <div className="flex px-40">
           <div className="flex ">
@@ -93,7 +90,6 @@ const Contact = () => {
           </button>
         </div>
       </div>
-      <Footer />
     </>
   );
 };
