@@ -75,8 +75,8 @@ const LoginPage2 = () => {
               <div className="flex w-full mt-8 items-center justify-center rounded-lg border border-black">
                 <select class="form-select" aria-label="Default select example">
                   <option selected>Custumer</option>
-                  <option value="1">Seller</option>
-                  <option value="2">Anonymous</option>
+                  <option value="1">Admin</option>
+                  <option value="2">Seller</option>
                 </select>
               </div>
 

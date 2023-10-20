@@ -12,7 +12,6 @@ const Loginpage = () => {
                 <div className="g-0 lg:flex lg:flex-wrap">
                   <div className="px-4 md:px-0 lg:w-6/12">
                     <div className="md:mx-6 md:p-12">
-                      {/* <!--Logo--> */}
                       <div className="text-center">
                         <img
                           className="mx-auto w-48"
@@ -34,14 +33,12 @@ const Loginpage = () => {
                           required
                         ></TEInput>
 
-                        {/* <!--Password input--> */}
                         <TEInput
                           type="password"
                           label="Password"
                           className="mb-4"
                         ></TEInput>
 
-                        {/* <!--Submit button--> */}
                         <div className="mb-12 pb-1 pt-1 text-center">
                           <TERipple rippleColor="light" className="w-full">
                             <button
@@ -56,11 +53,9 @@ const Loginpage = () => {
                             </button>
                           </TERipple>
 
-                          {/* <!--Forgot password link--> */}
                           <a href="#!">Forgot password?</a>
                         </div>
 
-                        {/* <!--Register button--> */}
                         <div className="flex items-center justify-between pb-6">
                           <p className="mb-0 mr-2">Don't have an account?</p>
                           <TERipple rippleColor="light">
@@ -78,7 +73,6 @@ const Loginpage = () => {
                     </div>
                   </div>
 
-                  {/* <!-- Right column container with background and description--> */}
                   <div
                     className="flex items-center rounded-b-lg lg:w-6/12 lg:rounded-r-lg lg:rounded-bl-none"
                     style={{
