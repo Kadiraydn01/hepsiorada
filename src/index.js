@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
+import "tw-elements-react/dist/css/tw-elements-react.min.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

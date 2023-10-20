@@ -10,14 +10,14 @@ import "../App.css";
 const About = () => {
   return (
     <>
-      <div class="flex flex-wrap gap-20 px-52 py-20">
-        <div class="flex flex-col gap-9 items-start about-left">
-          <h1 class="text-sm font-bold">ABOUT COMPANY</h1>
-          <h2 class="text-5xl font-bold">ABOUT US</h2>
-          <p class="w-[350px]">
+      <div className="flex flex-wrap gap-20 px-52 py-20">
+        <div className="xl:flex xl:flex-col md:flex md:flex-col xl:gap-9 md:gap-9 xl:items-start md:items-center xl:ml-0 md:ml-32 about-left">
+          <h1 className="text-sm font-bold">ABOUT COMPANY</h1>
+          <h2 className="text-5xl font-bold">ABOUT US</h2>
+          <p className="w-[350px]">
             We know how large objects will act, but things on a small scale
           </p>
-          <button class="px-10 py-3 border bg-blue-400 rounded-xl text-white">
+          <button className="px-10 py-3 border bg-blue-400 rounded-xl text-white">
             Get Quote Now
           </button>
         </div>
@@ -88,7 +88,7 @@ const About = () => {
       </div>
 
       <div className="flex flex-wrap">
-        <div className="flex flex-col gap-12 px-80 py-8 items-center justify-center">
+        <div className="xl:flex md:flex xl:flex-col md:flex-col xl:gap-12 md:gap-10 xl:px-80 md:px-0 md:ml-48 xl:ml-0 xl:py-8 md:py-10 xl:items-center md:items-center xl:justify-center md:justify-center">
           <h1 className="font-bold text-5xl">Big Companies Are Here</h1>
           <p className="w-[600px] text-center">
             lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
@@ -100,7 +100,7 @@ const About = () => {
 
       <Logo />
 
-      <div className="flex  gap-40 bg-blue-500 text-white justify-between">
+      <div className="flex xl:flex-row md:flex-col gap-40 bg-blue-500 text-white justify-between">
         <div className="flex ">
           <div className="flex flex-col px-52 py-24 items-start gap-8 justify-center">
             <h1 className="font-bold">WORK WITH US</h1>
@@ -115,7 +115,11 @@ const About = () => {
           </div>
         </div>
         <div>
-          <img className="w-[800px] h-[600px]" src={foto} alt="foto" />
+          <img
+            className="xl:w-[800px] xl:h-[600px] md:w-full md:h-[600px]"
+            src={foto}
+            alt="foto"
+          />
         </div>
       </div>
     </>
