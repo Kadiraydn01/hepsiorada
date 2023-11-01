@@ -1,29 +1,8 @@
-import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import resim from "../images/urun.png";
 import data from "../Data";
 
 const Bestseller = () => {
-  const [productsToDisplay, setProductsToDisplay] = useState(12);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const newWindowSize = window.innerWidth;
-
-      if (newWindowSize >= 700) {
-        setProductsToDisplay(12);
-      } else {
-        setProductsToDisplay(5);
-      }
-    };
-    console.log("useEffect is running");
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   return (
     <>
       <div>
@@ -37,7 +16,7 @@ const Bestseller = () => {
           </div>
         </div>
         <div className="xl:flex xl:flex-wrap xl:gap-14 xl:px-48 xl:py-10 md:flex md:flex-wrap md:gap-12 md:px-40 md:py-10 md:justify-center">
-          {[...Array(productsToDisplay)].map((_, index) => (
+          {[...Array()].map((_, index) => (
             <div
               key={index}
               className={`flex flex-col gap-4 items-center py-6`}

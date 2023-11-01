@@ -108,14 +108,14 @@ const ProductPage = () => {
             <button className="bg-blue-400 text-white py-3 px-6 rounded-lg">
               Select Options
             </button>
-            <div class="flex gap-4">
-              <div class="text-black bg-white rounded-full p-3 justify-center items-center">
+            <div className="flex gap-4">
+              <div className="text-black bg-white rounded-full p-3 justify-center items-center">
                 <AiOutlineHeart />
               </div>
-              <div class="text-black bg-white rounded-full p-3">
+              <div className="text-black bg-white rounded-full p-3">
                 <PiShoppingCartSimpleLight />
               </div>
-              <div class="text-black bg-white rounded-full p-3">
+              <div className="text-black bg-white rounded-full p-3">
                 <AiFillEye />
               </div>
             </div>

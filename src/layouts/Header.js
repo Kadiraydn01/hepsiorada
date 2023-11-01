@@ -11,7 +11,7 @@ import { LiaFacebook, LiaSignInAltSolid } from "react-icons/lia";
 const Header = () => {
   return (
     <>
-      <div className="flex justify-center items-center h-14 ">
+      <div className="xl:flex xl:justify-center xl:items-center xl:h-14 md:hidden">
         <div className="md:min-w-full md:flex md:bg-yellow-300 md:text-white md:justify-between md:items-center xl:flex xl:min-w-full xl:bg-black text-white xl:justify-between xl:items-start xl:min-h-40 xl:h-14 p-3">
           <div className="flex flex-row items-center gap-8">
             <div className="flex items-center gap-2">
@@ -53,7 +53,7 @@ const Header = () => {
         </div>
         <div className="flex items-center justify-around w-full ">
           <div>
-            <ul className="flex flex-row gap-7 items-start">
+            <ul className="xl:flex md:flex xl:flex-row md:flex-col xl:gap-7 md:gap-3 xl:py-0 md:py-10 md:mt-60 xl:mt-0 md:items-center xl:items-start">
               <a href="http://localhost:3000/">Home</a>
               <a href="http://localhost:3000/product">Shop</a>
               <a href="http://localhost:3000/about">About</a>
@@ -63,7 +63,7 @@ const Header = () => {
             </ul>
           </div>
           <div className="flex items-center gap-5">
-            <div className="flex items-center text-blue-500">
+            <div className="xl:flex xl:flex-row xl:items-center xl:text-blue-500 md:items-center md:text-blue-50 md:flex md:flex-col md:justify-center">
               <LiaSignInAltSolid />
               <a href="http://localhost:3000/login">Login</a>
               <a href="http://localhost:3000/register">/ Register</a>
@@ -72,10 +72,10 @@ const Header = () => {
               <BsSearch />
             </div>
             <div className="flex items-center gap-1 text-blue-500">
-              <AiOutlineShoppingCart />1
+              <AiOutlineShoppingCart />
             </div>
             <div className="flex items-center gap-1 text-blue-500">
-              <AiOutlineHeart />2
+              <AiOutlineHeart />
             </div>
           </div>
         </div>

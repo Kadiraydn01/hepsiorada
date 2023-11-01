@@ -80,7 +80,10 @@ const LoginPage2 = () => {
                 </select>
               </div>
 
-              <a href="#" className="text-xs text-purple-600 hover:underline">
+              <a
+                href="www.google.com"
+                className="text-xs text-purple-600 hover:underline"
+              >
                 Forget Password?
               </a>
               <div className="flex items-center mt-4">
@@ -122,7 +125,6 @@ const LoginPage2 = () => {
               </button>
               <button
                 aria-label="Login with GitHub"
-                role="button"
                 className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
               >
                 <svg

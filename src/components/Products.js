@@ -14,10 +14,10 @@ const Products = () => {
     <>
       <div className="flex py-6 items-center bg-custom-gray">
         <div className="flex items-center gap-8 px-80 w-full justify-between">
-          <div className="flex text-xl font-bold items-start w-1/2">
+          <div className="xl:flex xl:text-xl xl:font-bold xl:items-start xl:w-1/2 md:hidden">
             {data.productList.shop}
           </div>
-          <div className="flex items-center p-3 gap-4 ">
+          <div className="xl:flex xl:items-center xl:p-3 xl:gap-4 md:hidden">
             {data.productList.home}
             <SlArrowRight />
             {data.productList.shop}
@@ -25,7 +25,7 @@ const Products = () => {
         </div>
       </div>
       <div className=" bg-custom-gray">
-        <div className="xl:flex-row xl:w-full md:w-full xl:flex xl:gap-4 xl:px-80 xl:pb-12 xl:items-center md:flex md:flex-col md:gap-6 md:px-80 md:items-center md:pb-12">
+        <div className="xl:flex-row xl:w-full md:w-full xl:flex xl:gap-4 xl:px-80 xl:pb-12 xl:items-center md:flex md:flex-col md:gap-6 md:px-80 md:items-center md:pb-12 xl:py-0 md:py-40">
           <div className="relative" style={{ display: "inline-block" }}>
             <img src={resim} alt="resim" />
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-20 flex space-x-6 flex-col items-center justify-center text-center">
@@ -107,8 +107,8 @@ const Products = () => {
         </div>
       </div>
       <div>
-        <div className="xl:flex xl:flex-row xl:flex-wrap xl:gap-12 xl:px-80 xl:py-12 md:flex md:flex-col md:gap-12 md:px-80 md:py-12 md:items-center ">
-          <div>
+        <div className="xl:flex xl:flex-row xl:flex-wrap xl:gap-12 xl:px-60 xl:py-12 md:flex md:flex-col md:gap-12 md:px-80 md:py-12 md:items-center ">
+          <div className="md:hidden xl:flex xl:flex-col xl:gap-4 xl:items-center xl:py-6">
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
               <h5>{data.bestSeller.products.product1.productTitle}</h5>
@@ -129,7 +129,7 @@ const Products = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="md:hidden xl:flex xl:flex-col xl:gap-4 xl:items-center xl:py-6">
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
               <h5>{data.bestSeller.products.product1.productTitle}</h5>
@@ -150,7 +150,7 @@ const Products = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="md:hidden xl:flex xl:flex-col xl:gap-4 xl:items-center xl:py-6">
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
               <h5>{data.bestSeller.products.product1.productTitle}</h5>
@@ -171,7 +171,7 @@ const Products = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="md:hidden xl:flex xl:flex-col xl:gap-4 xl:items-center xl:py-6">
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
               <h5>{data.bestSeller.products.product1.productTitle}</h5>
@@ -192,7 +192,7 @@ const Products = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="md:hidden xl:flex xl:flex-col xl:gap-4 xl:items-center xl:py-6">
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
               <h5>{data.bestSeller.products.product1.productTitle}</h5>
@@ -213,7 +213,7 @@ const Products = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="md:hidden xl:flex xl:flex-col xl:gap-4 xl:items-center xl:py-6">
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
               <h5>{data.bestSeller.products.product1.productTitle}</h5>
@@ -234,7 +234,7 @@ const Products = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="md:hidden xl:flex xl:flex-col xl:gap-4 xl:items-center xl:py-6">
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
               <h5>{data.bestSeller.products.product1.productTitle}</h5>
@@ -255,7 +255,7 @@ const Products = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="md:hidden xl:flex xl:flex-col xl:gap-4 xl:items-center xl:py-6">
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
               <h5>{data.bestSeller.products.product1.productTitle}</h5>
@@ -276,7 +276,7 @@ const Products = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="xl:flex xl:flex-col xl:gap-4 xl:items-center xl:py-6">
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
               <h5>{data.bestSeller.products.product1.productTitle}</h5>
@@ -297,7 +297,7 @@ const Products = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="xl:flex xl:flex-col xl:gap-4 xl:items-center xl:py-6">
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
               <h5>{data.bestSeller.products.product1.productTitle}</h5>
@@ -318,7 +318,7 @@ const Products = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="xl:flex xl:flex-col xl:gap-4 xl:items-center xl:py-6">
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
               <h5>{data.bestSeller.products.product1.productTitle}</h5>
@@ -339,7 +339,7 @@ const Products = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="xl:flex xl:flex-col xl:gap-4 xl:items-center xl:py-6">
             <img src={resim} alt="resim" />
             <div className="flex flex-col gap-4 items-center py-6">
               <h5>{data.bestSeller.products.product1.productTitle}</h5>

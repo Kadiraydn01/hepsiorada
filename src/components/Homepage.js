@@ -33,7 +33,7 @@ const Homepage = () => {
 
       <Logo />
       <div className="flex items-center self-stretch pr-40 pl-40">
-        <div className="flex py-20 items-start gap-4">
+        <div className="xl:flex xl:flex-row md:flex md:flex-col xl:py-20 md:py-20 xl:items-start md:items-center gap-4">
           <div>
             <img src={resim7} alt="resim" />
           </div>

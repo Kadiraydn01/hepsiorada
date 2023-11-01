@@ -7,7 +7,7 @@ const Featured = () => {
   return (
     <>
       <div className="xl:flex xl:flex-row xl:gap-24 xl:px-48 xl:py-20 md:flex md:flex-col-reverse md:items-center md:gap-20 md:px-40 md:py-16">
-        <div className="flex gap-5">
+        <div className="xl:flex md:flex xl:flex-row md:flex-col xl:gap-5 md:gap-6">
           <img src={resim1} alt="resim" />
           <img src={resim2} alt="resim" />
         </div>

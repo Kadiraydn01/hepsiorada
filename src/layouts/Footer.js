@@ -9,17 +9,18 @@ const Footer = () => {
   return (
     <>
       <div className="flex px-60 bg-custom-gray items-start h-20">
-        <div className="flex items-center py-7 justify-between  w-full ">
+        <div className="xl:flex md:flex xl:flex-row md:flex-col xl:items-center md:items-start xl:py-7 md:py-0 xl:justify-between  xl:gap-0 md:gap-6  w-full ">
           <div>HepsiOrada</div>
-          <div className="flex px-14 gap-4  ">
+          <div className="xl:flex md:flex xl:px-14 md:px-0 gap-4  ">
             <BiLogoFacebookCircle className="text-blue-400 w-6 h-6" />
             <FaInstagram className="text-blue-400 w-6 h-6" />
             <BsTwitter className="text-blue-400 w-6 h-6" />
           </div>
         </div>
       </div>
+
       <div className="px-60">
-        <div className="flex gap-14 items-start py-10">
+        <div className="xl:flex md:flex xl:flex-row md:flex-col md:gap-14 xl:gap-14 xl:items-start md:items-start py-10">
           <div className="list-none flex flex-col gap-6 py-4">
             <div className="text-xl font-bold ">Company İnfo</div>
 

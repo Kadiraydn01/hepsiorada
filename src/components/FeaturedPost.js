@@ -22,7 +22,7 @@ const FeaturedPost = () => {
             <h3 className="font-bold text-4xl">{data.featuredPost.title2}</h3>
           </div>
           <div className="xl:flex md:flex xl:flex-row md:flex-col xl:items-center md:items-center md:gap-6 xl:gap-8">
-            <div className="xl:flex xl:flex-row md:flex md:flex-col">
+            <div className="xl:flex xl:flex-row md:flex md:flex-col md:items-center md:justify-center">
               <div className="relative">
                 <img src={resim} alt="resim" />
 
@@ -42,7 +42,7 @@ const FeaturedPost = () => {
                 </div>
               </div>
 
-              <div className="flex px-6 py-6 flex-col items-start gap-3 self-stretch">
+              <div className="flex px-6 py-6 flex-col items-start gap-3 md:ml-20 xl:ml-0 self-stretch">
                 <div className="flex justify-between items-center self-stretch w-56">
                   <h5 className="font-bold text-sm text-blue-400">
                     {data.featuredPost.postTitle}
@@ -96,7 +96,7 @@ const FeaturedPost = () => {
               </div>
             </div>
 
-            <div className="xl:flex xl:flex-row md:flex md:flex-col">
+            <div className="xl:flex xl:flex-row md:flex md:flex-col md:items-center md:justify-center">
               <div className="relative">
                 <img src={resim1} alt="resim" />
 
@@ -116,7 +116,7 @@ const FeaturedPost = () => {
                 </div>
               </div>
 
-              <div className="flex px-6 py-6 flex-col items-start gap-3 self-stretch">
+              <div className="flex px-6 py-6 flex-col items-start md:ml-20 xl:ml-0 gap-3 self-stretch">
                 <div className="flex justify-between items-center self-stretch w-56">
                   <h5 className="font-bold text-sm text-blue-400">
                     {data.featuredPost.postTitle}
