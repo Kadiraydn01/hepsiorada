@@ -52,8 +52,8 @@ const Header = () => {
           <div className="text-lg w-32">Hepsi Orada</div>
         </div>
         <div className="flex items-center justify-around w-full ">
-          <div>
-            <ul className="xl:flex md:flex xl:flex-row md:flex-col xl:gap-7 md:gap-3 xl:py-0 md:py-10 md:mt-60 xl:mt-0 md:items-center xl:items-start">
+          <div className="">
+            <ul className="xl:flex md:flex xl:flex-row xl:ml-0 md:ml-12 md:flex-col xl:gap-7 md:gap-3 xl:py-0 md:py-10 md:mt-60 xl:mt-0 md:items-center xl:items-start">
               <a href="http://localhost:3000/">Home</a>
               <a href="http://localhost:3000/product">Shop</a>
               <a href="http://localhost:3000/about">About</a>

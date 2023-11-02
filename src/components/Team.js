@@ -13,7 +13,7 @@ import user from "../images/teamUser.jpg";
 const Team = () => {
   return (
     <>
-      <div className="flex flex-col gap-12 pt-12 px-96 text-center items-center">
+      <div className="flex xl:mt-0 md:mt-40 flex-col gap-12 pt-12 px-96 text-center items-center">
         <h1>WHAT WE DO</h1>
         <h2 className="text-5xl font-bold">Innovation tailored for you</h2>
         <div className="flex items-center justify-center">

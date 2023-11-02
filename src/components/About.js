@@ -10,7 +10,7 @@ import "../App.css";
 const About = () => {
   return (
     <>
-      <div className="flex flex-wrap gap-20 px-52 py-20">
+      <div className="flex flex-wrap gap-20 xl:mt-0 md:mt-32 px-52 py-20">
         <div className="xl:flex xl:flex-col md:flex md:flex-col xl:gap-9 md:gap-9 xl:items-start md:items-center xl:ml-0 md:ml-32 about-left">
           <h1 className="text-sm font-bold">ABOUT COMPANY</h1>
           <h2 className="text-5xl font-bold">ABOUT US</h2>
