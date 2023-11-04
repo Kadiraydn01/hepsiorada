@@ -53,7 +53,7 @@ const Header = () => {
         </div>
         <div className="flex items-center justify-around w-full ">
           <div className="">
-            <ul className="xl:flex md:flex xl:flex-row xl:ml-0 md:ml-12 md:flex-col xl:gap-7 md:gap-3 xl:py-0 md:py-10 md:mt-60 xl:mt-0 md:items-center xl:items-start">
+            <ul className="xl:flex md:flex xl:flex-row xl:ml-0 md:ml-12 md:flex-col xl:gap-7 md:gap-3 xl:py-0 md:py-10 md:mt-64 xl:mt-0 md:items-center xl:items-start">
               <a href="http://localhost:3000/">Home</a>
               <a href="http://localhost:3000/product">Shop</a>
               <a href="http://localhost:3000/about">About</a>
@@ -63,7 +63,7 @@ const Header = () => {
             </ul>
           </div>
           <div className="flex items-center gap-5">
-            <div className="xl:flex xl:flex-row xl:items-center xl:text-blue-500 md:items-center md:text-blue-50 md:flex md:flex-col md:justify-center">
+            <div className="xl:flex xl:flex-row xl:items-center xl:text-blue-500 md:items-center md:text-blue-500 md:flex md:flex-row md:justify-center">
               <LiaSignInAltSolid />
               <a href="http://localhost:3000/login">Login</a>
               <a href="http://localhost:3000/register">/ Register</a>
