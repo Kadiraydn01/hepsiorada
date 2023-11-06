@@ -66,7 +66,7 @@ const Header = () => {
             <div className="xl:flex xl:flex-row xl:items-center xl:text-blue-500 md:items-center md:text-blue-500 md:flex md:flex-row md:justify-center">
               <LiaSignInAltSolid />
               <a href="http://localhost:3000/login">Login</a>
-              <a href="http://localhost:3000/register">/ Register</a>
+              <a href="http://localhost:3000/signup">/ Register</a>
             </div>
             <div className="flex items-center gap-1 text-blue-500">
               <BsSearch />

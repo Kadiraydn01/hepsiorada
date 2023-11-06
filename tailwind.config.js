@@ -13,9 +13,8 @@ module.exports = {
         "custom-yellow": "#FFCE31",
       },
       screens: {
-        sm: "450px",
-        md: "768px",
-        xl: "1200px",
+        md: "320px",
+        xl: "800px",
       },
     },
   },

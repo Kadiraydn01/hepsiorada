@@ -7,8 +7,7 @@ import Contact from "./components/Contact";
 import Team from "./components/Team";
 import About from "./components/About";
 import Loginpage from "./LoginPage/Loginpage";
-
-import SingUpPage from "./LoginPage/SingUpPage";
+import SingupPage2 from "./LoginPage/SingupPage2";
 
 function App() {
   return (
@@ -20,8 +19,8 @@ function App() {
         <Route path="/contact" component={Contact} />
         <Route path="/team" component={Team} />
         <Route path="/about" component={About} />
-        <Route path="/login" component={SingUpPage} />
-        <Route path="/register" component={Loginpage} />
+        <Route path="/signup" component={SingupPage2} />
+        <Route path="/login" component={Loginpage} />
       </Switch>
     </Router>
   );

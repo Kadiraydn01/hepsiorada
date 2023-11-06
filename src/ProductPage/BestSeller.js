@@ -52,8 +52,12 @@ const BestSeller = () => {
             </div>
           </div>
         </div>
-        <div className="px-10 bg-opacity-20 bg-white">
-          <img className="bg-white" src={resim} alt="resim" />
+        <div className="xl:px-10 xl:bg-opacity-20 xl:bg-white xl:w-64 xl:h-96 md:w-full md:h-96">
+          <img
+            className="bg-white xl:w-full h-2/3 xl:ml-0 md:w-full md:ml-10"
+            src={resim}
+            alt="resim"
+          />
           <div className="flex flex-col gap-4 items-center py-6">
             <h5>Graphic Design</h5>
             <h6>English Department</h6>
@@ -63,8 +67,12 @@ const BestSeller = () => {
             </div>
           </div>
         </div>
-        <div className="px-10 bg-opacity-20 bg-white">
-          <img className="bg-white" src={resim} alt="resim" />
+        <div className="xl:px-10 xl:bg-opacity-20 xl:bg-white xl:w-64 xl:h-96 md:w-full md:h-96">
+          <img
+            className="bg-white xl:w-full h-2/3 xl:ml-0 md:w-full md:ml-10"
+            src={resim}
+            alt="resim"
+          />
           <div className="flex flex-col gap-4 items-center py-6">
             <h5>Graphic Design</h5>
             <h6>English Department</h6>
@@ -74,8 +82,12 @@ const BestSeller = () => {
             </div>
           </div>
         </div>
-        <div className="px-10 bg-opacity-20 bg-white">
-          <img className="bg-white" src={resim} alt="resim" />
+        <div className="xl:px-10 xl:bg-opacity-20 xl:bg-white xl:w-64 xl:h-96 md:w-full md:h-96">
+          <img
+            className="bg-white xl:w-full h-2/3 xl:ml-0 md:w-full md:ml-10"
+            src={resim}
+            alt="resim"
+          />
           <div className="flex flex-col gap-4 items-center py-6">
             <h5>Graphic Design</h5>
             <h6>English Department</h6>
@@ -85,8 +97,12 @@ const BestSeller = () => {
             </div>
           </div>
         </div>
-        <div className="px-10 bg-opacity-20 bg-white">
-          <img className="bg-white" src={resim} alt="resim" />
+        <div className="xl:px-10 xl:bg-opacity-20 xl:bg-white xl:w-64 xl:h-96 md:w-full md:h-96">
+          <img
+            className="bg-white xl:w-full h-2/3 xl:ml-0 md:w-full md:ml-10"
+            src={resim}
+            alt="resim"
+          />
           <div className="flex flex-col gap-4 items-center py-6">
             <h5>Graphic Design</h5>
             <h6>English Department</h6>
