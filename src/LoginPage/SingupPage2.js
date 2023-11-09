@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { api } from "../api/api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function SingupPage2() {
   const [role, setRole] = useState(1);
+  const [showStoreFields, setShowStoreFields] = useState(false);
+
+  useEffect(() => {
+    setShowStoreFields(role === 2);
+  }, [role]);
 
   const {
     register,
@@ -36,10 +43,13 @@ function SingupPage2() {
     try {
       const response = await api.post("/signup", formData);
       console.log("Başarılı:", response.data);
+      console.log(formData);
+      toast.success("Başarıyla kayıt oldunuz.");
 
       setIsSubmitting(false);
     } catch (error) {
       console.error("Hata:", error);
+      toast.error("Kayıt sırasında bir hata oluştu.");
 
       setIsSubmitting(false);
     }
@@ -160,7 +170,7 @@ function SingupPage2() {
                   <option value="3">Admin</option>
                 </select>
               </div>
-              {role === "Store" && (
+              {showStoreFields && (
                 <div>
                   <div className="flex flex-wrap -mx-3 mb-6">
                     <div className="w-full px-3">
@@ -283,6 +293,8 @@ function SingupPage2() {
                 </button>
               </div>
             </form>
+            <ToastContainer />
+
             <div className="mt-4 text-grey-600">
               Already have an account?{" "}
               <span>
