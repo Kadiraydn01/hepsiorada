@@ -10,6 +10,7 @@ function SingupPage2() {
 
   useEffect(() => {
     setShowStoreFields(role === 2);
+    console.log(role);
   }, [role]);
 
   const {
@@ -87,7 +88,9 @@ function SingupPage2() {
                     className="block w-full mt-1 border border-black rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   />
                 </div>
-                {errors.name && <p>{errors.name.message}</p>}
+                <p style={{ color: errors.name ? "red" : "inherit" }}>
+                  {errors.name && errors.name.message}
+                </p>
               </div>
               <div className="mt-4 text-center justify-center">
                 <label
@@ -110,7 +113,9 @@ function SingupPage2() {
                     className="block w-full mt-1 border border-black rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   />
                 </div>
-                {errors.email && <p>{errors.email.message}</p>}
+                <p style={{ color: errors.email ? "red" : "inherit" }}>
+                  {errors.email && errors.email.message}
+                </p>
               </div>
               <div className="mt-4 text-center justify-center">
                 <label
@@ -119,7 +124,7 @@ function SingupPage2() {
                 >
                   Password
                 </label>
-                <div className="flex flex-col items-start">
+                <div className="flex flex-col items-start ">
                   <input
                     type="password"
                     id="password"
@@ -133,9 +138,11 @@ function SingupPage2() {
                     className="block w-full mt-1 border border-black rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   />
                 </div>
-                {errors.password && <p>{errors.password.message}</p>}
+                <p style={{ color: errors.password ? "red" : "inherit" }}>
+                  {errors.password && errors.password.message}
+                </p>
               </div>
-              <div className="mt-8 text-center justify-center">
+              <div className="mt-8 text-center justify-center ">
                 <label
                   htmlFor="passwordConfirmation"
                   className="block text-sm font-medium text-gray-700 undefined"
@@ -148,19 +155,25 @@ function SingupPage2() {
                     id="passwordConfirmation"
                     {...register("passwordConfirmation", {
                       required: "Password confirmation is required",
+                      className: "",
                       validate: (value) =>
                         value === watch("password") || "Passwords do not match",
                     })}
                     className="block border border-black w-full mt-1  rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   />
                 </div>
-                {errors.passwordConfirmation && (
-                  <p>{errors.passwordConfirmation.message}</p>
-                )}
+                <p
+                  style={{
+                    color: errors.passwordConfirmation ? "red" : "inherit",
+                  }}
+                >
+                  {errors.passwordConfirmation &&
+                    errors.passwordConfirmation.message}
+                </p>
               </div>
               <div className="flex w-full mt-8 items-center justify-center rounded-lg border border-black">
                 <select
-                  onChange={(e) => setRole(e.target.value)}
+                  onChange={(e) => setRole(parseInt(e.target.value))}
                   {...register("role_id")}
                   className="form-select"
                   aria-label="Default select example"
