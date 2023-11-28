@@ -3,56 +3,166 @@ import { useForm } from "react-hook-form";
 import { api } from "../api/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import { fetchRoles } from "../store/action/action";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function SingupPage2() {
-  const [role, setRole] = useState(1);
-  const [showStoreFields, setShowStoreFields] = useState(false);
+  const [selectedRoleId, setSelectedRoleId] = useState(2);
+  const [showStoreDiv, setShowStoreDiv] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setShowStoreFields(role === 2);
-    console.log(role);
-  }, [role]);
+    dispatch(fetchRoles());
+  }, [dispatch]);
+
+  const history = useHistory();
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
     watch,
+    formState: { errors },
   } = useForm();
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const storeName = watch("storeName") || "";
-  const onSubmit = async (data) => {
-    setIsSubmitting(true);
+  const onSubmit = (data) => {
+    setLoading(true);
+    if (selectedRoleId) data.role_id = selectedRoleId;
 
-    const formData = {
+    const adminData = {
       name: data.name,
       email: data.email,
       password: data.password,
       role_id: data.role_id,
     };
 
-    if (data.role_id === "2") {
-      formData.store = {
+    const customerData = {
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      role_id: data.role_id,
+    };
+
+    const storeData = {
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      role_id: data.role_id,
+      store: {
         name: data.storeName,
-        phone: data.storePhone,
-        tax_no: data.storeTaxID,
+        tax_no: data.storeTaxId,
         bank_account: data.storeBankAccount,
-      };
+      },
+    };
+    const successMessage =
+      "You need to click the link in the email to activate your account!";
+    const successState = { message: successMessage };
+
+    const handleSuccess = () => {
+      setTimeout(() => {
+        history.push({
+          pathname: "/products",
+          state: successState,
+        });
+      }, 5000);
+      notifySuccess();
+    };
+
+    const notifySuccess = () =>
+      toast.success(
+        "Login successful. You are directed to the products page.",
+        {
+          position: "bottom-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
+
+    const handleError = (error) => {
+      setLoading(false);
+      console.error("Error submitting form data: ", error);
+      notifyError();
+    };
+
+    const notifyError = () =>
+      toast.error("Login failed. Please try again", {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    if (selectedRoleId === 1) {
+      api
+        .post("/signup", storeData)
+        .then((response) => {
+          setLoading(false);
+          console.log(response.data);
+          console.log(storeData);
+          handleSuccess();
+        })
+        .catch((error) => {
+          console.log("error", error);
+          handleError(error);
+        })
+        .finally(function () {
+          setLoading(false);
+        });
+    } else if (selectedRoleId === 2) {
+      api
+        .post("/signup", customerData)
+        .then((response) => {
+          setLoading(false);
+          console.log(response.data);
+          console.log(customerData);
+          handleSuccess();
+        })
+        .catch((error) => {
+          console.log("error", error);
+          handleError(error);
+        })
+        .finally(function () {
+          setLoading(false);
+        });
+    } else if (selectedRoleId === 3) {
+      api
+        .post("/signup", adminData)
+        .then((response) => {
+          setLoading(false);
+          console.log(response.data);
+          console.log(adminData);
+          handleSuccess();
+        })
+        .catch((error) => {
+          console.log("error", error);
+          handleError(error);
+        })
+        .finally(function () {
+          setLoading(false);
+        });
     }
-    console.log(data.role_id);
-    try {
-      const response = await api.post("/signup", formData);
-      console.log("Başarılı:", response.data);
-      console.log(formData);
-      toast.success("Başarıyla kayıt oldunuz.");
+  };
 
-      setIsSubmitting(false);
-    } catch (error) {
-      console.error("Hata:", error);
-      toast.error("Kayıt sırasında bir hata oluştu.");
-
-      setIsSubmitting(false);
+  const handleRoleChange = (event) => {
+    if (event.target.value === "Store") {
+      setShowStoreDiv(true);
+      setSelectedRoleId(1);
+    } else if (event.target.value === "Customer") {
+      setShowStoreDiv(false);
+      setSelectedRoleId(2);
+    } else {
+      setShowStoreDiv(false);
+      setSelectedRoleId(3);
     }
   };
 
@@ -142,7 +252,7 @@ function SingupPage2() {
                   {errors.password && errors.password.message}
                 </p>
               </div>
-              <div className="mt-8 text-center justify-center ">
+              <div className="mt-8 text-center justify-center">
                 <label
                   htmlFor="passwordConfirmation"
                   className="block text-sm font-medium text-gray-700 undefined"
@@ -155,11 +265,10 @@ function SingupPage2() {
                     id="passwordConfirmation"
                     {...register("passwordConfirmation", {
                       required: "Password confirmation is required",
-                      className: "",
                       validate: (value) =>
                         value === watch("password") || "Passwords do not match",
                     })}
-                    className="block border border-black w-full mt-1  rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    className="block border border-black w-full mt-1 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   />
                 </div>
                 <p
@@ -171,19 +280,35 @@ function SingupPage2() {
                     errors.passwordConfirmation.message}
                 </p>
               </div>
-              <div className="flex w-full mt-8 items-center justify-center rounded-lg border border-black">
-                <select
-                  onChange={(e) => setRole(parseInt(e.target.value))}
-                  {...register("role_id")}
-                  className="form-select"
-                  aria-label="Default select example"
+
+              <div className="mt-8 text-center justify-center">
+                <label
+                  htmlFor="roleChange"
+                  className="block text-sm font-medium text-gray-700 undefined"
                 >
-                  <option value="1">Customer</option>
-                  <option value="2">Store</option>
-                  <option value="3">Admin</option>
-                </select>
+                  Role
+                </label>
+                <div className="flex  items-center justify-center">
+                  <select
+                    value={
+                      selectedRoleId === 1
+                        ? "Store"
+                        : selectedRoleId === 2
+                        ? "Customer"
+                        : "Admin"
+                    }
+                    onChange={(event) => handleRoleChange(event)}
+                    className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    id="grid-state"
+                  >
+                    <option>Customer</option>
+                    <option>Store</option>
+                    <option>Admin</option>
+                  </select>
+                </div>
               </div>
-              {showStoreFields && (
+
+              {showStoreDiv && (
                 <div>
                   <div className="flex flex-wrap -mx-3 mb-6">
                     <div className="w-full px-3">
@@ -209,7 +334,7 @@ function SingupPage2() {
                           },
                         })}
                       />
-                      {storeName.length < 3 && (
+                      {watch("storeName") && watch("storeName").length < 3 && (
                         <p className="text-red-500 text-xs italic">
                           {errors.storeName ? errors.storeName.message : ""}
                         </p>
@@ -299,10 +424,10 @@ function SingupPage2() {
               <div className="flex items-center mt-4">
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={loading}
                   className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
                 >
-                  {isSubmitting ? "Submitting..." : "Register"}
+                  {loading ? "Submitting..." : "Register"}
                 </button>
               </div>
             </form>
