@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import { PiSquaresFourFill, PiListChecksThin } from "react-icons/pi";
 import Dropdown from "react-bootstrap/Dropdown";
 import { AiOutlineDown } from "react-icons/ai";
+import Category from "./Category";
 
 const Products = () => {
   return (
@@ -24,6 +25,7 @@ const Products = () => {
           </div>
         </div>
       </div>
+      <Category />
       <div className=" bg-custom-gray">
         <div className="xl:flex-row xl:w-full md:w-full xl:flex xl:gap-4 xl:px-80 xl:pb-12 xl:items-center md:flex md:flex-col md:gap-6 md:px-80 md:items-center md:pb-12 xl:py-0 md:py-40">
           <div className="relative" style={{ display: "inline-block" }}>

@@ -8,8 +8,16 @@ import Team from "./components/Team";
 import About from "./components/About";
 import Loginpage from "./LoginPage/Loginpage";
 import SingupPage2 from "./LoginPage/SingupPage2";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { verifyToken } from "./store/action/userAction";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(verifyToken());
+  }, [dispatch]);
   return (
     <Router>
       <Switch>

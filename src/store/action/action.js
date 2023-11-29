@@ -3,6 +3,7 @@ import {
   FETCH_STATES_FAILURE,
   FETCH_STATES_REQUEST,
   FETCH_STATES_SUCCESS,
+  SET_ROLES,
 } from "./ActionType";
 
 export const singupActions = Object.freeze({
@@ -28,3 +29,7 @@ export const fetchRoles = () => {
 export const changeRoles = (roles) => {
   return { type: singupActions.setRoles, payload: roles };
 };
+export const setRoles = (roles) => ({
+  type: SET_ROLES,
+  payload: roles,
+});

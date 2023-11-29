@@ -7,8 +7,31 @@ import {
 } from "react-icons/ai";
 import { FiTwitter, FiYoutube } from "react-icons/fi";
 import { LiaFacebook, LiaSignInAltSolid } from "react-icons/lia";
+import { useDispatch, useSelector } from "react-redux";
+import md5 from "md5";
+
+import { SET_GRAVATAR_SUCCESS } from "../store/action/ActionType";
+import { useEffect } from "react";
 
 const Header = () => {
+  const user = useSelector((store) => store.user.user);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (user && user.email) {
+      const fetchGravatarUrl = async () => {
+        dispatch({ type: SET_GRAVATAR_SUCCESS, payload: gravatarUrl });
+      };
+
+      fetchGravatarUrl();
+    }
+  }, [dispatch, user]);
+
+  let gravatarUrl = "";
+
+  if (user && user.email) {
+    gravatarUrl = `https://www.gravatar.com/avatar/${md5(user.email)}`;
+  }
   return (
     <>
       <div className="xl:flex xl:justify-center xl:items-center xl:h-14 md:hidden">
@@ -64,9 +87,27 @@ const Header = () => {
           </div>
           <div className="flex items-center gap-5">
             <div className="xl:flex xl:flex-row xl:items-center xl:text-blue-500 md:items-center md:text-blue-500 md:flex md:flex-row md:justify-center">
-              <LiaSignInAltSolid />
-              <a href="http://localhost:3000/login">Login</a>
-              <a href="http://localhost:3000/signup">/ Register</a>
+              {gravatarUrl ? (
+                <div className="flex">
+                  <img
+                    className="mx-2"
+                    src={gravatarUrl}
+                    alt="User"
+                    style={{
+                      borderRadius: "50%",
+                      width: "30px",
+                      height: "30px",
+                    }}
+                  />
+                  <p className="text-sky-500 font-bold">{user.name}</p>
+                </div>
+              ) : (
+                <div className="flex">
+                  <LiaSignInAltSolid />
+                  <a href="http://localhost:3000/login">Login</a>
+                  <a href="http://localhost:3000/signup">/ Register</a>
+                </div>
+              )}
             </div>
             <div className="flex items-center gap-1 text-blue-500">
               <BsSearch />
