@@ -9,10 +9,12 @@ import { PiSquaresFourFill, PiListChecksThin } from "react-icons/pi";
 import Dropdown from "react-bootstrap/Dropdown";
 import { AiOutlineDown } from "react-icons/ai";
 import Category from "./Category";
+import ShoppingPage from "./ShoppingPage";
 
 const Products = () => {
   return (
     <>
+      <ShoppingPage />
       <div className="flex py-6 items-center bg-custom-gray">
         <div className="flex items-center gap-8 px-80 w-full justify-between">
           <div className="xl:flex xl:text-xl xl:font-bold xl:items-start xl:w-1/2 md:hidden">

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   fetchCategories,
@@ -13,14 +13,25 @@ const Category = () => {
   const loading = useSelector((state) => state.global.loading);
   const error = useSelector((state) => state.global.error);
 
-  console.log("cate:", categories);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedGender, setSelectedGender] = useState("e");
+
   useEffect(() => {
     dispatch(fetchCategories());
-
     dispatch(setRoles());
   }, [dispatch]);
 
   const handleCategoryClick = (gender, categoryId) => {};
+
+  const handleGenderDropdownChange = (event) => {
+    const selectedGenderValue = event.target.value;
+    setSelectedGender(selectedGenderValue);
+    setSelectedCategory(null);
+  };
+
+  const filteredCategories = categories.filter((category) =>
+    category.code.startsWith(selectedGender)
+  );
 
   if (loading) {
     return <div>Loading...</div>;
@@ -32,23 +43,34 @@ const Category = () => {
 
   return (
     <div>
-      <h2>Categories</h2>
-      <ul>
-        {categories.map((category) => (
-          <li key={category.id}>
-            <button onClick={() => handleCategoryClick("male", category.id)}>
-              {category.name}
-            </button>
-          </li>
+      <h2 className="items-center flex">Categories</h2>
+      <select onChange={handleGenderDropdownChange} value={selectedGender}>
+        <option value="e">Men</option>
+        <option value="k">Women</option>
+      </select>
+
+      <select
+        onChange={(event) => setSelectedCategory(event.target.value)}
+        value={selectedCategory}
+      >
+        <option value={null}>Select a category</option>
+        {filteredCategories.map((category) => (
+          <option key={category.id} value={category.id}>
+            {category.code}
+          </option>
         ))}
-      </ul>
+      </select>
 
       <h2>Top Categories</h2>
-      <ul>
+      <ul className="flex gap-12 justify-evenly text-center">
         {topCategories.map((category) => (
           <li key={category.id}>
-            <img src={category.imageUrl} alt={category.name} />
-            <p>{category.name}</p>
+            <img
+              className="w-40 h-60"
+              src={category.img}
+              alt={category.title}
+            />
+            <p>{category.title}</p>
             <p>Rating: {category.rating}</p>
           </li>
         ))}
