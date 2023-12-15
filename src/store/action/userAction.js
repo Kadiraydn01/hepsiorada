@@ -5,6 +5,7 @@ import {
   SET_USER_SUCCESS,
 } from "./ActionType";
 import { api } from "../storeApi";
+import { fetchProducts } from "./productAction";
 
 export const setUserDataSuccess = (userData) => ({
   type: SET_USER_SUCCESS,
@@ -20,6 +21,7 @@ export const loginUser = (loginData) => async (dispatch) => {
     localStorage.setItem("token", userData.token);
 
     dispatch(setUserDataSuccess(data));
+    dispatch(fetchProducts());
 
     dispatch({ type: LOGIN_SUCCESS, payload: data });
   } catch (error) {
@@ -55,7 +57,7 @@ export const logoutUser = () => (dispatch) => {
 
   delete api.defaults.headers.common["Authorization"];
 
-  dispatch({ type: "LOGOUT_" });
+  dispatch({ type: "LOGOUT" });
 };
 
 export const verifyToken = () => async (dispatch) => {

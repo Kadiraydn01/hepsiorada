@@ -1,32 +1,117 @@
+import { toast } from "react-toastify";
+import { FETCH_STATES } from "../reducer/productReducer";
 import { api } from "../storeApi";
-import {
-  FETCH_STATES_FAILURE,
-  FETCH_STATES_REQUEST,
-  FETCH_STATES_SUCCESS,
-} from "./ActionType";
 
-export const productsActions = Object.freeze({
-  setProducts: "SET_PRODUCTS",
+export const productActions = Object.freeze({
+  set: "SET_PRODUCTS",
+  clear: "CLEAR_PRODUCTS",
+  add: "ADD_PRODUCT",
+  delete: "DELETE_PRODUCT",
+  setLoading: "SET_PRODUCTS_LOADING",
+  setFetchState: "SET_FETCH_STATE",
+  setCategory: "SET_PRODUCT_CATEGORY",
 });
 
-export const fetchProducts = (params) => {
-  return async (dispatch) => {
-    dispatch({ type: FETCH_STATES_REQUEST });
+export const loadProductsActionCreator = () => (dispatch) => {
+  dispatch({ type: productActions.setLoading, payload: true });
+  dispatch({
+    type: productActions.setFetchState,
+    payload: FETCH_STATES.fetching,
+  });
 
-    try {
-      const response = await api.get("/products", { params });
-      const productsData = response.data;
-
-      dispatch({ type: FETCH_STATES_SUCCESS });
-      dispatch(setProducts(productsData.products));
-      console.log(productsData.products);
-    } catch (error) {
-      dispatch({ type: FETCH_STATES_FAILURE, payload: error.message });
-    }
-  };
+  api
+    .get("products")
+    .then((res) => {
+      dispatch({ type: productActions.set, payload: res.data });
+      dispatch({
+        type: productActions.setFetchState,
+        payload: FETCH_STATES.fetched,
+      });
+    })
+    .catch((err) => {
+      toast.error(`Hata mesajı: ${err.message}`);
+    })
+    .finally(() => {
+      dispatch({ type: productActions.setLoading, payload: false });
+    });
 };
 
-export const setProducts = (products) => ({
-  type: productsActions.setProducts,
-  payload: products,
-});
+export const deleteProductActionCreator = (productId) => (dispatch) => {
+  productId &&
+    api
+      .delete(`products/${productId}`)
+      .then((res) => {
+        dispatch({ type: productActions.delete, payload: productId });
+      })
+      .catch((err) => {
+        toast.error(`Hata mesajı: ${err.message}`);
+      });
+};
+
+export const fetchProductsActionCreator =
+  (offset = 0, sortOption = "", existingProducts = [], category = null) =>
+  async (dispatch) => {
+    dispatch({ type: productActions.setLoading, payload: true });
+    dispatch({
+      type: productActions.setFetchState,
+      payload: FETCH_STATES.fetching,
+    });
+
+    try {
+      const response = await api.get("/products", {
+        params: { offset, sortOption, category },
+      });
+      const newProducts = response.data.products;
+
+      const updatedProducts =
+        offset === 0 ? newProducts : [...existingProducts, ...newProducts];
+
+      dispatch({ type: productActions.set, payload: updatedProducts });
+      dispatch({
+        type: productActions.setFetchState,
+        payload: FETCH_STATES.fetched,
+      });
+
+      dispatch({ type: productActions.setCategory, payload: category });
+
+      return newProducts;
+    } catch (error) {
+      dispatch({
+        type: productActions.setFetchState,
+        payload: FETCH_STATES.failed,
+      });
+      toast.error(`Error message: ${error.message}`);
+    } finally {
+      dispatch({ type: productActions.setLoading, payload: false });
+    }
+  };
+
+export const fetchProducts = (category, filter, sort) => async (dispatch) => {
+  dispatch({ type: productActions.setLoading, payload: true });
+
+  try {
+    const response = await api.get("/products", {
+      params: {
+        category,
+        filter,
+        sort,
+      },
+    });
+    const products = response.data.products;
+    console.log("data", products);
+
+    dispatch({ type: productActions.set, payload: products });
+    dispatch({
+      type: productActions.setFetchState,
+      payload: FETCH_STATES.fetched,
+    });
+  } catch (error) {
+    dispatch({
+      type: productActions.setFetchState,
+      payload: FETCH_STATES.failed,
+    });
+    toast.error(`Error message: ${error.message}`);
+  } finally {
+    dispatch({ type: productActions.setLoading, payload: false });
+  }
+};

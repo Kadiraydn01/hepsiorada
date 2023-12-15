@@ -13,10 +13,8 @@ export const fetchCategories = () => async (dispatch) => {
   try {
     const { data } = await api.get("/categories");
     dispatch({ type: FETCH_CATEGORIES_SUCCESS, payload: data });
-
+    console.log("data", data);
     dispatch(setTopCategories(data.slice(0, 5)));
-
-    console.log("success", data);
   } catch (error) {
     dispatch({ type: FETCH_CATEGORIES_FAILURE, payload: error.message });
   }
