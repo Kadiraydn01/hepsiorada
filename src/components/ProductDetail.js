@@ -8,7 +8,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 export const ProductDetail = () => {
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.products.loading);
+
   const products = useSelector((state) => state.products.productList);
   const [offset, setOffset] = useState(0);
   const [sortOption, setSortOption] = useState("");
@@ -23,16 +23,6 @@ export const ProductDetail = () => {
     dispatch(fetchProducts());
     dispatch(fetchProductsActionCreator());
   }, [dispatch]);
-
-  if (loading) {
-    return (
-      <p style={{ textAlign: "center" }}>
-        Ürünler hazırlanırken beklediğiniz için teşekkür ederiz.
-        <br></br>
-        Anlayışınız için teşekkürler... 😊
-      </p>
-    );
-  }
 
   const fetchMoreData = () => {
     const newOffset = offset + products.length;
@@ -81,7 +71,7 @@ export const ProductDetail = () => {
       console.error("Error sorting products:", error);
     }
   };
-
+  console.log("product", products);
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible);
   };
@@ -204,7 +194,7 @@ export const ProductDetail = () => {
 
       <div
         ref={scrollContainerRef}
-        className="flex flex-wrap mx-auto justify-center "
+        className="flex flex-wrap mx-auto justify-center overscroll-y-none"
       >
         {products.length > 0 ? (
           <InfiniteScroll
@@ -213,17 +203,17 @@ export const ProductDetail = () => {
             hasMore={true}
             loader={<h4>Loading...</h4>}
             endMessage={<p>No more products to show</p>}
-            scrollThreshold={0.9}
-            scrollableTarget={scrollContainerRef.current}
+            scrollThreshold={0.7}
             scrollToTop={false}
+            scrollToBottom={false}
           >
-            <div className="flex flex-wrap m-12 justify-center ml-48 mr-48 items-center">
+            <div className="flex flex-wrap m-12 justify-center ml-48 mr-48 items-center overscroll-y-none">
               {(filteredProducts.length > 0 ? filteredProducts : products).map(
                 (product) => (
                   <Link
-                    to={`/${product.category}/${
+                    to={`/products/${product.category_id}/${
                       product.id
-                    }/${encodeURIComponent(product.name)}`}
+                    }/${encodeURIComponent(product.name.split(" ").join("-"))}`}
                     key={product.id}
                     className="flex flex-col items-center m-8 shadow-2xl text-center w-64 rounded-lg p-8 hover:shadow-md transform transition-transform duration-300 hover:scale-105"
                   >
@@ -236,6 +226,7 @@ export const ProductDetail = () => {
                       {product.name}
                     </p>
                     <p className="text-sm">{product.description}</p>
+
                     <p className="text-lg font-bold text-green-500">{`${product.price.toFixed(
                       2
                     )} ₺`}</p>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Dropdown, ButtonGroup } from "react-bootstrap";
 import { fetchCategories } from "../store/action/globalAction";
 import { setRoles } from "../store/action/action";
 import { fetchProducts } from "../store/action/productAction";

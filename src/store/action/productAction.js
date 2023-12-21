@@ -49,7 +49,7 @@ export const deleteProductActionCreator = (productId) => (dispatch) => {
 };
 
 export const fetchProductsActionCreator =
-  (offset = 5, sortOption = "", existingProducts = [], category = null) =>
+  (offset = 0, sortOption = "", existingProducts = [], category = null) =>
   async (dispatch) => {
     dispatch({ type: productActions.setLoading, payload: true });
     dispatch({
@@ -64,7 +64,7 @@ export const fetchProductsActionCreator =
       const newProducts = response.data.products;
 
       const updatedProducts =
-        offset === 5 ? newProducts : [...existingProducts, ...newProducts];
+        offset === 0 ? newProducts : [...existingProducts, ...newProducts];
 
       dispatch({ type: productActions.set, payload: updatedProducts });
       dispatch({

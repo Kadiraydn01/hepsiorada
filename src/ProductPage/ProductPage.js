@@ -3,18 +3,31 @@ import { SlArrowRight } from "react-icons/sl";
 import Logo from "../components/Logo";
 import BestSeller from "./BestSeller";
 import foto from "../images/foto23.png";
-import cover from "../images/cover.jpg";
-import little from "../images/küçük1.jpg";
-import little1 from "../images/küçük2.jpg";
-import {
-  AiTwotoneStar,
-  AiOutlineStar,
-  AiOutlineHeart,
-  AiFillEye,
-} from "react-icons/ai";
+import { AiOutlineHeart, AiFillEye } from "react-icons/ai";
 import { PiShoppingCartSimpleLight } from "react-icons/pi";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import Rating from "./Rating";
+import { useHistory } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 const ProductPage = () => {
+  const { productId } = useParams();
+  const history = useHistory();
+  const products = useSelector((state) => state.products.productList);
+  const selectedProduct = products.find(
+    (product) => product.id === Number(productId)
+  );
+  console.log("select", selectedProduct);
+
+  if (!selectedProduct) {
+    return <div>Ürün bulunamadı.</div>;
+  }
+
+  const goBack = () => {
+    history.push("/product");
+  };
+
   return (
     <>
       <div className="xl:mt-0 md:mt-60">
@@ -24,49 +37,32 @@ const ProductPage = () => {
             <SlArrowRight />
             <h2>Shop</h2>
           </div>
+          <div className="bg-opacity-20 pl-40 bg-gray-400">
+            <Button
+              onClick={goBack}
+              style={{
+                cursor: "pointer",
+                backgroundColor: "white",
+                color: "black",
+              }}
+            >
+              Back
+            </Button>
+          </div>
         </div>
-        <div className="xl:flex xl:flex-row md:flex md:flex-col px-40 bg-opacity-20 bg-gray-400 gap-8 py-7">
+        <div className="xl:flex xl:flex-row md:flex md:flex-col px-40 bg-opacity-20 bg-gray-400 gap-8 py-7 h-[600px]">
           <div className="carousel w-full">
-            <div id="slide1" className="carousel-item relative w-full">
-              <img src={cover} alt="cover" className="w-full" />
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide4" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide2" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-            </div>
-            <div id="slide2" className="carousel-item relative w-full">
-              <img src={little} alt="little" className="w-full" />
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide1" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide3" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-            </div>
-            <div id="slide3" className="carousel-item relative w-full">
-              <img src={little1} alt="little" className="w-full" />
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide2" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide4" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-            </div>
-            <div id="slide4" className="carousel-item relative w-full">
-              <img src={little} alt="little" className="w-full" />
+            <div id="slide1" className="carousel-item relative w-full active">
+              <img
+                src={selectedProduct.images[0].url}
+                alt={`image-0`}
+                className="w-[800px] h-[500px]"
+              />
               <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                 <a href="#slide3" className="btn btn-circle">
                   ❮
                 </a>
-                <a href="#slide1" className="btn btn-circle">
+                <a href="#slide2" className="btn btn-circle">
                   ❯
                 </a>
               </div>
@@ -75,28 +71,28 @@ const ProductPage = () => {
 
           <div className="flex flex-col gap-4">
             <div className="text-2xl">
-              <h3>Floating Phone</h3>
+              <h3>{selectedProduct.name}</h3>
             </div>
             <div className="flex items-center gap-2">
-              <AiTwotoneStar className="text-yellow-200 w-7 h-7" />
-              <AiTwotoneStar className="text-yellow-200 w-7 h-7" />
-              <AiTwotoneStar className="text-yellow-200 w-7 h-7" />
-              <AiTwotoneStar className="text-yellow-200 w-7 h-7" />
-              <AiOutlineStar className="text-yellow-200 w-7 h-7" />
-              <p>10 Reviews</p>
-            </div>
-            <div className="font-bold text-2xl">$ 1,139,33</div>
-            <div className="flex gap-3">
-              <div className="font-bold">Availability :</div>
-              <div className="text-blue-400 font-bold">In Stock</div>
+              <Rating rating={selectedProduct.rating} />
             </div>
             <div>
-              <p className="w-96">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
-                quod. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Natus, quod. Lorem ipsum dolor sit amet consectetur adipisicing
-                elit.
+              <p className="text-xl font-bold text-cyan-500">
+                {selectedProduct.rating}
               </p>
+            </div>
+            <div className="font-bold text-2xl">
+              $ {selectedProduct.price.toFixed(2)}
+            </div>
+            <div className="flex gap-3">
+              <div className="font-bold">Availability :</div>
+              <div className="text-blue-400 font-bold">
+                {" "}
+                {selectedProduct.stock > 0 ? "In Stock" : "Out of Stock"}
+              </div>
+            </div>
+            <div>
+              <p className="w-96">{selectedProduct.description}</p>
             </div>
             <hr />
             <div className="flex gap-2">
