@@ -11,6 +11,7 @@ import SingupPage2 from "./LoginPage/SingupPage2";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { verifyToken } from "./store/action/userAction";
+import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ function App() {
         <Route path="/about" component={About} />
         <Route path="/signup" component={SingupPage2} />
         <Route path="/login" component={Loginpage} />
+        <Route path="/cart" component={ShoppingCart} />
       </Switch>
     </Router>
   );

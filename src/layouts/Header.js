@@ -1,10 +1,6 @@
 import * as React from "react";
 import { BsInstagram, BsTelephone, BsSearch } from "react-icons/bs";
-import {
-  AiOutlineMail,
-  AiOutlineShoppingCart,
-  AiOutlineHeart,
-} from "react-icons/ai";
+import { AiOutlineMail, AiOutlineHeart } from "react-icons/ai";
 import { FiTwitter, FiYoutube } from "react-icons/fi";
 import { LiaFacebook, LiaSignInAltSolid } from "react-icons/lia";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,14 +13,20 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { SET_GRAVATAR_SUCCESS } from "../store/action/ActionType";
 import { useEffect } from "react";
 import { logoutUser } from "../store/action/userAction";
+import CartPopover from "../components/CartPopover";
 
 const Header = () => {
   const user = useSelector((store) => store.user.user);
   const dispatch = useDispatch();
+
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const open = Boolean(anchorEl);
+  let gravatarUrl = "";
 
+  if (user && user.email) {
+    gravatarUrl = `https://www.gravatar.com/avatar/${md5(user.email)}`;
+  }
   useEffect(() => {
     if (user && user.email) {
       const fetchGravatarUrl = async () => {
@@ -33,13 +35,8 @@ const Header = () => {
 
       fetchGravatarUrl();
     }
-  }, [dispatch, user]);
+  }, [dispatch, user, gravatarUrl]);
 
-  let gravatarUrl = "";
-
-  if (user && user.email) {
-    gravatarUrl = `https://www.gravatar.com/avatar/${md5(user.email)}`;
-  }
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -48,7 +45,6 @@ const Header = () => {
   };
   const handleLogout = () => {
     dispatch(logoutUser());
-
     handleClose();
   };
   return (
@@ -151,9 +147,10 @@ const Header = () => {
             <div className="flex items-center gap-1 text-blue-500">
               <BsSearch />
             </div>
-            <div className="flex items-center gap-1 text-blue-500">
-              <AiOutlineShoppingCart />
+            <div className="flex items-center gap-1 text-blue-500 ">
+              <CartPopover />
             </div>
+
             <div className="flex items-center gap-1 text-blue-500">
               <AiOutlineHeart />
             </div>

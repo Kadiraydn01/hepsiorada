@@ -16,7 +16,7 @@ const Bestseller = () => {
           </div>
         </div>
         <div className="xl:flex xl:flex-wrap xl:gap-14 xl:px-48 xl:py-10 md:flex md:flex-wrap md:gap-12 md:px-40 md:py-10 md:justify-center">
-          {[...Array()].map((_, index) => (
+          {[...Array(8)].map((_, index) => (
             <div
               key={index}
               className={`flex flex-col gap-4 items-center py-6`}

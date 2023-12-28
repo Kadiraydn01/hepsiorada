@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
 import { SlArrowRight } from "react-icons/sl";
 import Logo from "../components/Logo";
@@ -10,15 +11,17 @@ import { useParams } from "react-router-dom";
 import Rating from "./Rating";
 import { useHistory } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../store/action/shoppingAction";
 
 const ProductPage = () => {
   const { productId } = useParams();
   const history = useHistory();
+  const dispatch = useDispatch();
   const products = useSelector((state) => state.products.productList);
   const selectedProduct = products.find(
     (product) => product.id === Number(productId)
   );
-  console.log("select", selectedProduct);
 
   if (!selectedProduct) {
     return <div>Ürün bulunamadı.</div>;
@@ -28,6 +31,11 @@ const ProductPage = () => {
     history.push("/product");
   };
 
+  const handleAddToCart = () => {
+    dispatch(addToCart(selectedProduct));
+    console.log("eklendi");
+    console.log("eklenen ürün: ", selectedProduct);
+  };
   return (
     <>
       <div className="xl:mt-0 md:mt-60">
@@ -56,9 +64,9 @@ const ProductPage = () => {
               <img
                 src={selectedProduct.images[0].url}
                 alt={`image-0`}
-                className="w-[800px] h-[500px]"
+                className="w-[650px] h-[500px]"
               />
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+              <div className="absolute flex justify-between transform -translate-y-2/3 left-1 right-32 top-1/2">
                 <a href="#slide3" className="btn btn-circle">
                   ❮
                 </a>
@@ -102,18 +110,35 @@ const ProductPage = () => {
               <div className="w-4 h-4 rounded-full bg-black"></div>
             </div>
             <div className="flex gap-4 py-4">
-              <button className="bg-blue-400 text-white py-3 px-6 rounded-lg">
+              <button className="bg-blue-400 text-white py-3 px-8 rounded-lg">
                 Select Options
               </button>
-              <div className="flex gap-4">
-                <div className="text-black bg-white rounded-full p-3 justify-center items-center">
-                  <AiOutlineHeart />
-                </div>
-                <div className="text-black bg-white rounded-full p-3">
-                  <PiShoppingCartSimpleLight />
-                </div>
-                <div className="text-black bg-white rounded-full p-3">
-                  <AiFillEye />
+              <div>
+                <div className="flex gap-4">
+                  <div className="cursor-pointer">
+                    <div className="text-black bg-white rounded-full px-4 py-2 h-8 justify-center items-center">
+                      <AiOutlineHeart />
+                    </div>
+                    <span className="flex text-center justify-center">
+                      Beğen
+                    </span>
+                  </div>
+
+                  <div className="cursor-pointer">
+                    <div
+                      onClick={() => handleAddToCart(selectedProduct)}
+                      className="text-black bg-white rounded-full px-4 py-2 h-8 justify-center items-center"
+                    >
+                      <PiShoppingCartSimpleLight />
+                    </div>
+                    <span className="flex text-center">Sepete Ekle</span>
+                  </div>
+                  <div className="cursor-pointer">
+                    <div className="text-black bg-white rounded-full px-3 py-2 h-8 justify-center items-center">
+                      <AiFillEye />
+                    </div>
+                    <span className="flex text-center">Kaydet</span>
+                  </div>
                 </div>
               </div>
             </div>

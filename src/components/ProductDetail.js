@@ -194,7 +194,7 @@ export const ProductDetail = () => {
 
       <div
         ref={scrollContainerRef}
-        className="flex flex-wrap mx-auto justify-center overscroll-y-none"
+        className="flex flex-wrap mx-auto justify-center "
       >
         {products.length > 0 ? (
           <InfiniteScroll
@@ -207,7 +207,7 @@ export const ProductDetail = () => {
             scrollToTop={false}
             scrollToBottom={false}
           >
-            <div className="flex flex-wrap m-12 justify-center ml-48 mr-48 items-center overscroll-y-none">
+            <div className="flex flex-wrap m-12 justify-center ml-48 mr-48 items-center ">
               {(filteredProducts.length > 0 ? filteredProducts : products).map(
                 (product) => (
                   <Link
