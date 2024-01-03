@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React from "react";
+import React, { useState } from "react";
 import { SlArrowRight } from "react-icons/sl";
 import Logo from "../components/Logo";
 import BestSeller from "./BestSeller";
@@ -15,6 +15,8 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../store/action/shoppingAction";
 
 const ProductPage = () => {
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const [isClickable, setIsClickable] = useState(true);
   const { productId } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
@@ -32,9 +34,12 @@ const ProductPage = () => {
   };
 
   const handleAddToCart = () => {
+    if (!isClickable) {
+      return;
+    }
     dispatch(addToCart(selectedProduct));
-    console.log("eklendi");
-    console.log("eklenen ürün: ", selectedProduct);
+    setIsAddedToCart(true);
+    setIsClickable(false);
   };
   return (
     <>
@@ -127,11 +132,15 @@ const ProductPage = () => {
                   <div className="cursor-pointer">
                     <div
                       onClick={() => handleAddToCart(selectedProduct)}
-                      className="text-black bg-white rounded-full px-4 py-2 h-8 justify-center items-center"
+                      className={`text-black bg-${
+                        isAddedToCart ? "red" : "white"
+                      } rounded-full px-4 py-2 h-8 justify-center items-center`}
                     >
                       <PiShoppingCartSimpleLight />
                     </div>
-                    <span className="flex text-center">Sepete Ekle</span>
+                    <span className="flex text-center">
+                      {isAddedToCart ? "Sepete Eklendi" : "Sepete Ekle"}
+                    </span>
                   </div>
                   <div className="cursor-pointer">
                     <div className="text-black bg-white rounded-full px-3 py-2 h-8 justify-center items-center">
