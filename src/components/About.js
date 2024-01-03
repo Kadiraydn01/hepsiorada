@@ -43,23 +43,61 @@ const About = () => {
       </div>
 
       <div className="px-60 justify-center ">
-        <div className="flex flex-wrap justify-center items-center text-center gap-6 py-20">
-          <div className="flex flex-col gap-4 items-center w-60">
-            <h1 className="font-bold text-5xl">15K</h1>
-            <h2>Happy Customers</h2>
-          </div>
-          <div className="flex flex-col gap-4 items-center w-60">
-            <h1 className="font-bold text-5xl">150K</h1>
-            <h2>Monthly Visitors</h2>
-          </div>
-          <div className="flex flex-col gap-4 items-center w-60">
-            <h1 className="font-bold text-5xl">15</h1>
-            <h2>Countries Worldwide</h2>
-          </div>
-          <div className="flex flex-col gap-4 items-center w-60">
-            <h1 className="font-bold text-5xl">100+</h1>
-            <h2>Top Partners</h2>
-          </div>
+        <div
+          className="max-w-800 mx-auto scroller"
+          data-animated="true"
+          data-speed="fast"
+        >
+          <ul className="scroller__inner flex gap-4">
+            <li className="p-4">
+              <div className="flex flex-col gap-4 items-center w-60">
+                <h1 className="font-bold text-5xl">15K</h1>
+                <h2>Happy Customers</h2>
+              </div>
+            </li>
+            <li className="p-4">
+              <div className="flex flex-col gap-4 items-center w-60">
+                <h1 className="font-bold text-5xl">150K</h1>
+                <h2>Monthly Visitors</h2>
+              </div>
+            </li>
+            <li className="p-4">
+              <div className="flex flex-col gap-4 items-center w-60">
+                <h1 className="font-bold text-5xl">15</h1>
+                <h2>Countries Worldwide</h2>
+              </div>
+            </li>
+            <li className="p-4">
+              <div className="flex flex-col gap-4 items-center w-60">
+                <h1 className="font-bold text-5xl">100+</h1>
+                <h2>Top Partners</h2>
+              </div>
+            </li>
+            <li className="p-4">
+              <div className="flex flex-col gap-4 items-center w-60">
+                <h1 className="font-bold text-5xl">15K</h1>
+                <h2>Happy Customers</h2>
+              </div>
+            </li>
+            <li className="p-4">
+              <div className="flex flex-col gap-4 items-center w-60">
+                <h1 className="font-bold text-5xl">150K</h1>
+                <h2>Monthly Visitors</h2>
+              </div>
+            </li>
+            <li className="p-4">
+              <div className="flex flex-col gap-4 items-center w-60">
+                <h1 className="font-bold text-5xl">15</h1>
+                <h2>Countries Worldwide</h2>
+              </div>
+            </li>
+            <li className="p-4">
+              <div className="flex flex-col gap-4 items-center w-60">
+                <h1 className="font-bold text-5xl">100+</h1>
+                <h2>Top Partners</h2>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -90,7 +128,7 @@ const About = () => {
       <div className="flex flex-wrap">
         <div className="xl:flex md:flex xl:flex-col md:flex-col xl:gap-12 md:gap-10 xl:px-80 md:px-0 md:ml-48 xl:ml-0 xl:py-8 md:py-10 xl:items-center md:items-center xl:justify-center md:justify-center">
           <h1 className="font-bold text-5xl">Big Companies Are Here</h1>
-          <p className="w-[600px] text-center">
+          <p className="w-[850px] text-center">
             lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
             quod?lorem ipsum dolor sit amet consectetur adipisicing elit.
             Quisquam , quod?

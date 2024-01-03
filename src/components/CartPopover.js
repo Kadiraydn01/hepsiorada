@@ -45,7 +45,7 @@ const CartPopover = () => {
         className="text-blue-500 hover:underline flex items-center text-center justify-center gap-2"
         onMouseEnter={toggleCart}
       >
-        <a href="http://localhost:3000/cart">Sepetim</a>
+        <a href="https://hepsiorada.vercel.app/cart">Sepetim</a>
         <AiOutlineShoppingCart />
       </button>
 
@@ -60,7 +60,7 @@ const CartPopover = () => {
               onClick={toggleCart}
             >
               <i className="fa fa-shopping-cart"></i>
-              <a className="ml-2" href="http://localhost:3000/cart">
+              <a className="ml-2" href="https://hepsiorada.vercel.app/cart">
                 Sepetim
               </a>
             </button>
