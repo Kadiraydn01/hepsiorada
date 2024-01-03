@@ -194,10 +194,11 @@ export const ProductDetail = () => {
 
       <div
         ref={scrollContainerRef}
-        className="flex flex-wrap mx-auto justify-center "
+        className="flex flex-wrap overflow-hidden mx-auto justify-center "
       >
         {products.length > 0 ? (
           <InfiniteScroll
+            className="overflow-hidden"
             dataLength={products.length}
             next={fetchMoreData}
             hasMore={true}

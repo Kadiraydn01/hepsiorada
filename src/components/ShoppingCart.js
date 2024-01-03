@@ -6,9 +6,11 @@ import {
   removeFromCart,
 } from "../store/action/shoppingAction";
 import { AiOutlineDelete } from "react-icons/ai";
+import { useHistory } from "react-router-dom";
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const cartItems = useSelector((state) => state.shoppingCart.cart);
   const [discountCode, setDiscountCode] = useState("");
 
@@ -55,7 +57,8 @@ const ShoppingCart = () => {
   };
 
   const handleCheckout = () => {
-    alert("Siparişiniz oluşturuldu");
+    alert("Siparişi oluşturmak için aktarılıyorsunuz");
+    history.push("/order");
   };
 
   return (
@@ -105,7 +108,11 @@ const ShoppingCart = () => {
                 </div>
                 <div className="text-center w-full py-5 ">
                   <h5>Yurtiçi Kargo</h5>
-                  <h6 className="text-red-500">Ücretsiz</h6>
+                  <h6 className="text-red-500">
+                    {calculateTotal() >= 150
+                      ? "Ücretsiz"
+                      : "Ücretsiz kargo için sepet toplamı 150 TL ve üstü olmalıdır"}
+                  </h6>
                 </div>
                 <div className="flex flex-col text-center items-center px-20 ">
                   <span className="text-sm">Adet: {item.quantity}</span>
@@ -126,7 +133,9 @@ const ShoppingCart = () => {
         </div>
         <div className="flex justify-between mb-4">
           <span className="font-bold">Kargo Fiyatı:</span>
-          <span className="font-bold text-lg">$40.00</span>
+          <span className="font-bold text-lg">
+            {calculateTotal() >= 150 ? "Ücretsiz" : "$40.00"}
+          </span>
         </div>
         <div className="flex justify-between mb-4  text-start">
           <div>

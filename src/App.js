@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { verifyToken } from "./store/action/userAction";
 import ShoppingCart from "./components/ShoppingCart";
+import Order from "./components/AddAddress";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ function App() {
         <Route path="/signup" component={SingupPage2} />
         <Route path="/login" component={Loginpage} />
         <Route path="/cart" component={ShoppingCart} />
+        <Route path="/order" component={Order} />
       </Switch>
     </Router>
   );
