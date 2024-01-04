@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { verifyToken } from "./store/action/userAction";
 import ShoppingCart from "./components/ShoppingCart";
-import Order from "./components/AddAddress";
+import Order from "./components/Order";
 
 function App() {
   const dispatch = useDispatch();
