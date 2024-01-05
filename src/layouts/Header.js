@@ -92,12 +92,12 @@ const Header = () => {
         <div className="flex items-center justify-around w-full ">
           <div className="">
             <ul className="xl:flex md:flex xl:flex-row xl:ml-0 md:ml-12 md:flex-col xl:gap-7 md:gap-3 xl:py-0 md:py-10 md:mt-64 xl:mt-0 md:items-center xl:items-start">
-              <a href="https://hepsiorada.vercel.app/">Home</a>
-              <a href="https://hepsiorada.vercel.app/product">Shop</a>
-              <a href="https://hepsiorada.vercel.app/about">About</a>
-              <a href="https://hepsiorada.vercel.app/">Blog</a>
-              <a href="https://hepsiorada.vercel.app/team">Contact</a>
-              <a href="https://hepsiorada.vercel.app/products">Pages</a>
+              <a href="/">Home</a>
+              <a href="/product">Shop</a>
+              <a href="/about">About</a>
+              <a href="/">Blog</a>
+              <a href="/team">Contact</a>
+              <a href="/products">Pages</a>
             </ul>
           </div>
           <div className="flex items-center gap-5">
@@ -139,8 +139,8 @@ const Header = () => {
               ) : (
                 <div className="flex">
                   <LiaSignInAltSolid />
-                  <a href="https://hepsiorada.vercel.app/login">Login</a>
-                  <a href="https://hepsiorada.vercel.app/signup">/ Register</a>
+                  <a href="/login">Login</a>
+                  <a href="/signup">/ Register</a>
                 </div>
               )}
             </div>
