@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import { verifyToken } from "./store/action/userAction";
 import ShoppingCart from "./components/ShoppingCart";
 import Order from "./components/Order";
+import Card from "./components/CreditCardForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ function App() {
         <Route path="/login" component={Loginpage} />
         <Route path="/cart" component={ShoppingCart} />
         <Route path="/order" component={Order} />
+        <Route path="/card" component={Card} />
       </Switch>
     </Router>
   );

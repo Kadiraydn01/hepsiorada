@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddressForm from "./AddAddress";
 import { api } from "../api/api";
-import OrderSummary from "./OrderSummary";
+import OrderContinue from "./OrderContinue";
 
 const Order = () => {
   const [addresses, setAddresses] = useState([]);
@@ -13,7 +13,7 @@ const Order = () => {
       try {
         const response = await api.get("/user/address", {
           headers: {
-            Authorization: ` ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxLCJpYXQiOjE3MDQzODMxNjAsImV4cCI6MTcwNjAyNDc2MH0.nM5LLwK-UtCjrLE2OeECkZnOI4Hh-bpj1sjobYP7rLI"}`,
+            Authorization: `${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxLCJpYXQiOjE3MDQzODMxNjAsImV4cCI6MTcwNjAyNDc2MH0.nM5LLwK-UtCjrLE2OeECkZnOI4Hh-bpj1sjobYP7rLI"}`,
           },
         });
 
@@ -89,7 +89,7 @@ const Order = () => {
             )}
           </div>
         </div>
-        <OrderSummary />
+        <OrderContinue />
       </div>
     </>
   );

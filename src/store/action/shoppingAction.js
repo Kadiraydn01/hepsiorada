@@ -1,3 +1,10 @@
+import { SET_SELECTED_ADDRESS } from "./ActionType";
+
+export const setSelectedAddress = (address) => ({
+  type: SET_SELECTED_ADDRESS,
+  payload: address,
+});
+
 export const shoppingActions = Object.freeze({
   addToCart: "ADD_TO_CART",
   removeFromCart: "REMOVE_FROM_CART",
