@@ -7,7 +7,7 @@ import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
 import "tw-elements-react/dist/css/tw-elements-react.min.css";
 import { Provider } from "react-redux";
-import store from "./store/store";
+import { store } from "./store/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

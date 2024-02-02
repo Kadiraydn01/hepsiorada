@@ -34,8 +34,8 @@ const ShoppingCart = () => {
   };
 
   return (
-    <div className="mx-auto py-8 w-4/5 mt-8 mb-8 flex gap-20">
-      <div className="w-full mb-8">
+    <div className="justify-between flex">
+      <div className="w-[750px] ml-20 mt-3 mb-8">
         <h2 className="text-2xl font-bold text-center py-4">Sepetim</h2>
         {cartItems.length === 0 ? (
           <p>Sepetinizde ürün bulunmuyor!</p>
@@ -97,7 +97,9 @@ const ShoppingCart = () => {
           </ul>
         )}
       </div>
-      <OrderSummary />
+      <div className="mx-8 mt-10">
+        <OrderSummary />
+      </div>
     </div>
   );
 };

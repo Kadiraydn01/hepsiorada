@@ -60,11 +60,10 @@ const Footer = () => {
               />
               <Button
                 variant="primary"
-                className="mt-2 text-white bg-sky-400 py-4 px-4 rounded  "
+                className="mt-2 text-white bg-sky-400 py-2 px-4 rounded  "
               >
                 Subscribe
               </Button>
-              <div>Lorem ipsum dolor </div>
             </div>
           </div>
         </div>

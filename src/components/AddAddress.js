@@ -62,7 +62,7 @@ const AddressForm = () => {
     try {
       const response = await api.post("/user/address", formData, {
         headers: {
-          Authorization: ` ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxLCJpYXQiOjE3MDQzODMxNjAsImV4cCI6MTcwNjAyNDc2MH0.nM5LLwK-UtCjrLE2OeECkZnOI4Hh-bpj1sjobYP7rLI"}`,
+          Authorization: ` ${localStorage.getItem("token")}`,
         },
       });
 
@@ -93,7 +93,7 @@ const AddressForm = () => {
   };
 
   return (
-    <form className="max-w-md mx-auto mt-5 mb-5 p-4 gap-6 flex flex-col bg-white shadow-2xl rounded-md">
+    <form className="w-[600px] mx-auto mt-5 mb-5 p-4 gap-6 flex flex-col bg-white shadow-2xl rounded-md">
       <label className="block mb-2 font-bold">
         Adres Başlığı:
         <input

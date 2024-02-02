@@ -2,8 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import { api } from "../api/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch, useSelector } from "react-redux";
 
-import OrderSummary from "./OrderSummary";
+import OrderFinish from "./OrderFinish";
+
+import { setSelectedCard } from "../store/action/shoppingAction";
 
 const CreditCardForm = () => {
   const [cardData, setCardData] = useState({
@@ -11,28 +14,35 @@ const CreditCardForm = () => {
     expire_month: 1,
     expire_year: 2025,
     name_on_card: "",
+    card_ccv: "",
   });
   const [formErrors, setFormErrors] = useState({
     card_no: "",
     expire_month: "",
     expire_year: "",
     name_on_card: "",
+    card_ccv: "",
   });
   const [showForm, setShowForm] = useState(false);
   const [savedCards, setSavedCards] = useState([]);
+  const [selectedCardId, setSelectedCardId] = useState(null);
   const formRef = useRef(null);
+  const dispatch = useDispatch();
 
   const fetchSavedCards = async () => {
     try {
       const response = await api.get("/user/card", {
         headers: {
-          Authorization: ` ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxLCJpYXQiOjE3MDU2MDQzNTQsImV4cCI6MTcwNzI0NTk1NH0.p3tAq8HPlIZOuLHWrlov0pG2hJ0N0wPaipH6EqpyeqU"}`,
+          Authorization: ` ${localStorage.getItem("token")}`,
         },
       });
       setSavedCards(response.data);
     } catch (error) {
       console.error("Kart bilgileri getirilirken hata oluştu:", error.message);
     }
+  };
+  const handleCardClick = (cardId) => {
+    setSelectedCardId(cardId);
   };
 
   useEffect(() => {
@@ -62,6 +72,7 @@ const CreditCardForm = () => {
     /^\d{1,2}$/.test(value) && value >= 1 && value <= 12;
   const isValidExpireYear = (value) => /^\d{4}$/.test(value);
   const isValidNameOnCard = (value) => value.trim().length >= 3;
+  const isValidCcv = (value) => /^\d{3}$/.test(value);
 
   const isFormValid = () => {
     const newFormErrors = {};
@@ -81,6 +92,9 @@ const CreditCardForm = () => {
     if (!isValidNameOnCard(cardData.name_on_card)) {
       newFormErrors.name_on_card = "En az 3 karakter giriniz.";
     }
+    if (!isValidCcv(cardData.card_ccv)) {
+      newFormErrors.card_ccv = "Geçerli bir ccv giriniz.";
+    }
 
     setFormErrors(newFormErrors);
 
@@ -98,7 +112,7 @@ const CreditCardForm = () => {
     try {
       const response = await api.post("/user/card", cardData, {
         headers: {
-          Authorization: ` ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxLCJpYXQiOjE3MDU2MDQzNTQsImV4cCI6MTcwNzI0NTk1NH0.p3tAq8HPlIZOuLHWrlov0pG2hJ0N0wPaipH6EqpyeqU"}`,
+          Authorization: ` ${localStorage.getItem("token")}`,
         },
       });
 
@@ -109,6 +123,7 @@ const CreditCardForm = () => {
         expire_month: 1,
         expire_year: 2025,
         name_on_card: "",
+        card_ccv: "",
       });
       setFormErrors({});
       toast.success("Kredi kartı başarıyla eklendi!", {
@@ -132,28 +147,48 @@ const CreditCardForm = () => {
       expire_month: selectedCard.expire_month,
       expire_year: selectedCard.expire_year,
       name_on_card: selectedCard.name_on_card,
+      card_ccv: selectedCard.card_ccv,
     });
-
-    setShowForm(true);
+    dispatch(setSelectedCard(selectedCard));
   };
 
   const handleOutsideClick = (e) => {
     if (formRef.current && !formRef.current.contains(e.target)) {
-      console.log("Tıklama: Form dışında");
       setShowForm(false);
     } else {
-      console.log("Tıklama: Form içinde");
     }
   };
+  const selectedAddress = useSelector((state) => state.order.selectedAddress);
+
+  localStorage.setItem("selectedAddress", JSON.stringify(selectedAddress));
+
+  const storedAddress = JSON.parse(localStorage.getItem("selectedAddress"));
+  console.log(storedAddress.selectedAddress);
 
   return (
     <>
       <div className="flex justify-between">
-        <div className="border-r-2 my-5 h-screen w-[500px]">
-          <div className="flex my-16 mx-6 flex-col gap-6">
-            <div>
+        <div className=" my-5 h-screen w-[700px]">
+          <div className="flex flex-col ml-28 my-6 border w-[300px] text-center p-3 rounded-xl bg-slate-100 ">
+            <h3 className="font-bold">Teslimat Adresi</h3>
+            {selectedAddress.selectedAddress ? (
+              <>
+                <p>{selectedAddress.selectedAddress.title}</p>
+                <p>{selectedAddress.selectedAddress.address}</p>
+                <p>
+                  {selectedAddress.selectedAddress.city} /{" "}
+                  {selectedAddress.selectedAddress.district}
+                </p>
+              </>
+            ) : (
+              <p>No selected address</p>
+            )}
+          </div>
+
+          <div className="flex  my-16 mx-6 flex-col gap-6">
+            <div className="z-30">
               <button
-                className="flex items-center ml-20 gap-1 border px-4 py-2 bg-slate-200 hover:bg-slate-300 rounded-xl"
+                className="flex items-center ml-8 gap-1 border px-4 py-2 bg-slate-200 hover:bg-slate-300 rounded-xl"
                 onClick={() => setShowForm(true)}
               >
                 <img
@@ -227,11 +262,24 @@ const CreditCardForm = () => {
                       <p className="text-red-500">{formErrors.name_on_card}</p>
                     )}
                   </label>
+                  <label className="font-semibold ">
+                    CCV:
+                    <input
+                      type="text"
+                      name="card_ccv"
+                      value={cardData.card_ccv}
+                      onChange={handleChange}
+                      className="block w-full mt-1 p-2 border rounded-md font-extralight"
+                    />
+                    {formErrors.card_ccv && (
+                      <p className="text-red-500">{formErrors.card_ccv}</p>
+                    )}
+                  </label>
                   <ToastContainer />
                   <button
                     type="submit"
                     onClick={handleSubmit}
-                    className="mt-4 bg-green-500 text-white p-2 rounded-md cursor-pointer"
+                    className="mt-4 bg-green-500  text-white p-2 rounded-md cursor-pointer"
                   >
                     Kredi Kartı Ekle
                   </button>
@@ -248,6 +296,12 @@ const CreditCardForm = () => {
                         className="border px-4 py-3 w-[200px] bg-slate-100 hover:bg-slate-300 rounded-xl text-right m-2 cursor-pointer"
                         onClick={() => handleSelectCard(savedCard)}
                       >
+                        <input
+                          type="checkbox"
+                          checked={selectedCardId === savedCard.id}
+                          onChange={() => handleCardClick(savedCard.id)}
+                          className="w-5 h-5 mb-2 ml-32 cursor-pointer  flex"
+                        />
                         <img
                           src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
                           alt="card"
@@ -265,8 +319,8 @@ const CreditCardForm = () => {
             </div>
           </div>
         </div>
-        <div className="my-5">
-          <OrderSummary />
+        <div className="my-4 mx-2">
+          <OrderFinish />
         </div>
       </div>
     </>

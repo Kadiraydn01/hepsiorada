@@ -11,6 +11,7 @@ export const SET_USER = "SET_USER";
 export const SET_STORE_INFO = "SET_STORE_INFO";
 
 export const SET_SELECTED_ADDRESS = "SET_SELECTED_ADDRESS";
+export const SET_SELECTED_CARD = "SET_SELECTED_CARD";
 
 export const SET_ROLES = "SET_ROLES";
 

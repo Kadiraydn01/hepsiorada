@@ -98,6 +98,7 @@ const Header = () => {
               <a href="/">Blog</a>
               <a href="/team">Contact</a>
               <a href="/products">Pages</a>
+              <a href="/last">Siparişlerim</a>
             </ul>
           </div>
           <div className="flex items-center gap-5">

@@ -51,7 +51,7 @@ const CartPopover = () => {
 
       {isCartOpen && (
         <div
-          className="fixed top-20 right-10 z-10 w-2/3 bg-white shadow-lg rounded-md overflow-hidden"
+          className="fixed top-20 right-10 z-10 w-1/2 h-3/4 bg-white shadow-lg rounded-md overflow-auto "
           onMouseLeave={closeCart}
         >
           <div className="py-4 px-4">
@@ -82,7 +82,7 @@ const CartPopover = () => {
                       <img
                         src={item.product.images[0].url}
                         alt={item.product.name}
-                        className="w-32 h-32 mr-4"
+                        className="w-32 h-32 mr-4 rounded-lg"
                       />
                       <div className="flex-grow">
                         <span className="font-bold">{item.product.name}</span>

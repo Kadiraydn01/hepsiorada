@@ -1,9 +1,17 @@
-import { SET_SELECTED_ADDRESS } from "./ActionType";
+import { SET_SELECTED_ADDRESS, SET_SELECTED_CARD } from "./ActionType";
 
-export const setSelectedAddress = (address) => ({
-  type: SET_SELECTED_ADDRESS,
-  payload: address,
-});
+export const setSelectedAddress = (address) => {
+  return {
+    type: SET_SELECTED_ADDRESS,
+    payload: address,
+  };
+};
+export const setSelectedCard = (card) => {
+  return {
+    type: SET_SELECTED_CARD,
+    payload: card,
+  };
+};
 
 export const shoppingActions = Object.freeze({
   addToCart: "ADD_TO_CART",
